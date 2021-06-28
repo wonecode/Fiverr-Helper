@@ -10,10 +10,7 @@
             <div class="navbar-nav">
                 {% if not app.user %}
                     <li class="nav-item">
-                        <a class="nav-link active py-2 text-dark" aria-current="page" href="{{ path('app_login') }}">Sign in</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="btn btn-outline-primary px-2 py-1 mt-1 ms-2 join" aria-current="page" href="#">Join</a>
+                        <a class="nav-link active py-2 text-primary" aria-current="page" href="{{ path('app_login') }}">Sign in</a>
                     </li>
                 {% else %}
                     <div class="dropdown">

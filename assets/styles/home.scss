@@ -60,6 +60,12 @@
         }
     }
 
+    h3 {
+        @media screen and (max-width: 740px) {
+            font-size: 17px;
+        }
+    }
+
     .card-home {
         background-color: #d0f7e6;
         border-radius: 5px;
@@ -82,6 +88,16 @@
 
         &:hover {
             filter: brightness(105%);
+        }
+    }
+
+    .btn {
+        font-weight: bold;
+        font-size: 18px;
+
+        @media screen and (max-width: 740px) {
+            margin-top: 15px;
+            width: 100%;
         }
     }
 }
