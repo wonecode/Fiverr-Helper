@@ -21,7 +21,7 @@ class UserFixtures extends Fixture
 
     public function load(ObjectManager $manager)
     {
-        $fakeUsers = $this->userGenerator->getManyUser(50);
+        $fakeUsers = $this->userGenerator->getManyUser(20);
 
         foreach ($fakeUsers['results'] as $fakeUser){
             $user = new User();
@@ -37,7 +37,15 @@ class UserFixtures extends Fixture
         $user->setEmail('admin@fiverr.com');
         $user->setUsername('admin');
         $user->setPassword($this->passwordHasher->hashPassword($user, 'admin'));
+        $user->setRoles(['ROLE_ADMIN']);
         $user->setLevel(100);
+        $manager->persist($user);
+
+        $user = new User();
+        $user->setEmail('user@fiverr.com');
+        $user->setUsername('user');
+        $user->setPassword($this->passwordHasher->hashPassword($user, '12345'));
+        $user->setLevel(0);
         $manager->persist($user);
 
         $manager->flush();
