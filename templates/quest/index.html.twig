@@ -1,0 +1,44 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Quest index{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('admin') }}
+{% endblock %}
+{% block body %}
+    <h1>Quest index</h1>
+    <a href="{{ path('quest_new') }}" class="btn btn-primary">Create new</a>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Experience</th>
+                <th>MinimumLevel</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for quest in quests %}
+            <tr>
+                <td>{{ quest.id }}</td>
+                <td>{{ quest.name }}</td>
+                <td>{{ quest.description }}</td>
+                <td>{{ quest.experience }}</td>
+                <td>{{ quest.minimumLevel }}</td>
+                <td>
+                    <a href="{{ path('quest_show', {'id': quest.id}) }}" class="far fa-eye link-logo"></a>
+                    <a href="{{ path('quest_edit', {'id': quest.id}) }}" class="far fa-edit link-logo"></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+   
+{% endblock %}

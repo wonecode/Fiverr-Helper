@@ -1,0 +1,28 @@
+@import 'variables';
+body {
+    background-color: $light;
+
+    h1 {
+        color: $dark;
+        font-size: 3rem;
+        font-weight: bold;
+        text-align: center;
+        padding: 20px;
+    }
+
+    table {
+        .link-logo {
+            font-size: 20px;
+            text-decoration: none;
+            margin: 10px;
+        }
+
+        .delete {
+            color: red;
+        }
+
+        img {
+            border-radius: 50%;
+        }
+    }
+}
