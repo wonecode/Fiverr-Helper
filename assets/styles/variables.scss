@@ -3,10 +3,15 @@
     src: url('../fonts/Macan-Regular.ttf');
 }
 
+@font-face {
+    font-family: 'Domaine';
+    src: url('../fonts/DomaineDisplayApp-MediumItalic.ttf');
+}
+
 $primary: #1dbf73;
 $warning: #d0e500;
 $light: #e4e4e4;
-$dark: #222222;
+$dark: #3b3b3b;
 $white: #f1f1f1;
 
 $font-p: 'Macan Regular';

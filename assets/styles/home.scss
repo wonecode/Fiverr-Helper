@@ -1,0 +1,87 @@
+@import 'variables';
+
+.home-head {
+    background: no-repeat center/100%
+        url('/assets/images/Fiverr_18_Sania_Lifestyle_02356.jpg');
+    object-fit: cover;
+    height: 60vh;
+    font-family: $font-p;
+
+    h1 {
+        font-size: 3.6em;
+        font-family: $font-p;
+        font-weight: bold;
+        text-shadow: 3px 3px 0px rgba(68, 68, 68, 0.55);
+        letter-spacing: -1px;
+
+        @media screen and (max-width: 740px) {
+            font-size: 1.6em;
+        }
+
+        span {
+            letter-spacing: -3px;
+            font-weight: bold;
+            font-family: 'Domaine';
+            color: #68f5b3;
+
+            @media screen and (max-width: 740px) {
+                font-family: $font-p;
+                letter-spacing: 0;
+            }
+        }
+    }
+
+    .btn {
+        font-weight: bold;
+        font-size: 18px;
+
+        @media screen and (max-width: 740px) {
+            margin-top: 15px;
+            width: 100%;
+        }
+    }
+
+    @media screen and (max-width: 740px) {
+        height: 40vh;
+    }
+}
+
+.home-whats {
+    font-family: $font-p;
+         
+    h2 {
+        font-family: $font-p;
+        font-weight: 700;
+        color: $dark;
+
+        .helper {
+            font-family: 'Domaine';
+            color: $primary;
+        }
+    }
+
+    .card-home {
+        background-color: #d0f7e6;
+        border-radius: 5px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        color: $dark;
+
+        i {
+            font-size: 50px;
+            color: $primary;
+        }
+
+        h4 {
+            margin: 0;
+            padding: 0;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        &:hover {
+            filter: brightness(105%);
+        }
+    }
+}

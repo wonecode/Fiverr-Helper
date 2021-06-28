@@ -1,7 +1,68 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %}{{ parent() }} - Home
+{% block title %}
+    {{ parent() }}
+    - Help other freelancers
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    {{ encore_entry_link_tags('home') }}
 {% endblock %}
 
 {% block body %}
-{% endblock %}
+    <header class="home-head p-5 d-flex align-items-center">
+        <div>
+            <h1 class="h1 mt-lg-5 mt-2 text-white text-left">
+                Help other
+                <span class="fst-italic fw-lighter">freelancers</span>
+            </br>and improve your
+            <span class="fst-italic fw-lighter">visibility</span>
+        </h1>
+        <a href="#" class="btn btn-lg btn-primary text-white">Help freelancers now</a>
+    </div>
+</header>
+
+<section class="home-whats container">
+    <h2 class="text-left mt-md-5 mt-1">
+        What is
+        <span class="fiverr">Fiverr</span>
+        <span class="helper">helper
+        </span>?
+    </h2>
+    <h3 class="h5 fw-lighter">Help other freelancers, gain experience, complete some quests and then,
+        <span>improve your visibility</span>
+        !</h3>
+
+    <div class="my-5 d-flex flex-lg-row flex-column">
+        <div class="col-lg-3 col-12 pe-lg-2 mb-2">
+            <div class="card-home text-center">
+                <i class="fas fa-hands-helping mb-3"></i>
+                <h4>Help freelancers</h4>
+                <p class="mt-2 mb-0">Help some freelancers to complete their missions</p>
+            </div>
+        </div>
+        <div class="col-lg-3 col-12 px-lg-2 mb-2">
+            <div class="card-home text-center">
+                <i class="fas fa-plus mb-3"></i>
+                <h4>Gain experience</h4>
+                <p class="mt-2 mb-0">After contributing to missions, you gain leveling experience</p>
+            </div>
+        </div>
+        <div class="col-lg-3 col-12 px-lg-2 mb-2">
+            <div class="card-home text-center">
+                <i class="fas fa-tasks mb-3"></i>
+                <h4>Complete quests</h4>
+                <p class="mt-2 mb-0">Experience allows you to complete quest stages</p>
+            </div>
+        </div>
+        <div class="col-lg-3 col-12 ps-lg-2 mb-2">
+            <div class="card-home text-center">
+                <i class="fas fa-chart-line mb-3"></i>
+                <h4>Improve visibility</h4>
+                <p class="mt-2 mb-0">After complishing some quests, you gain badges and visibility</p>
+            </div>
+        </div>
+    </div>
+</section>{% endblock %}
