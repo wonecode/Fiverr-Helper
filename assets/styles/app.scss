@@ -1,20 +1,2 @@
 @import 'variables';
 @import '~bootstrap/scss/bootstrap';
-
-.btn {
-    box-sizing: border-box;
-    appearance: none;
-    border-radius: 0.6em;
-    line-height: 1;
-    padding: 0.8em 1.8em;
-    font-family: $font-p;
-    background: {
-        position: 100%;
-        size: 400%;
-    }
-    transition: background 0.5s ease-in-out;
-
-    &:hover {
-        background-position: 0;
-    }
-}
