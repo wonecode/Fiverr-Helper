@@ -33,6 +33,8 @@ Encore
      */
     .addEntry('app', './assets/app.js')
 
+    .addEntry('searchForm', './assets/searchForm.js')
+
     .addStyleEntry('navbar', './assets/styles/navbar.scss')
     .addStyleEntry('admin', './assets/styles/admin.scss')
     .addStyleEntry('adminUser', './assets/styles/adminUser.scss')
