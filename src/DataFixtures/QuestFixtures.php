@@ -34,9 +34,22 @@ class QuestFixtures extends Fixture
         $quest->setDescription('For this first quest you just have to help a freelance !');
         $quest->setExperience(10);
         $quest->setMinimumLevel(0);
-
         $manager->persist($quest);
         
+        $quest = new Quest();
+        $quest->setName('Help a Web dev');
+        $quest->setDescription('For this one you just have to help a web developer !');
+        $quest->setExperience(25);
+        $quest->setMinimumLevel(1);
+        $manager->persist($quest);
+
+        $quest = new Quest();
+        $quest->setName('Help two people');
+        $quest->setDescription('For this one you just have to help two persons !');
+        $quest->setExperience(25);
+        $quest->setMinimumLevel(1);
+        $manager->persist($quest);
+
         $manager->flush();
     }
 }
