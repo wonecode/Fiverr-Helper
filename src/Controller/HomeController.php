@@ -12,10 +12,8 @@ class HomeController extends AbstractController
     /**
      * @Route("/", name="home")
      */
-    public function index(UserGeneratorApi $userGenerator): Response
+    public function index(): Response
     {
-
-        dd($userGenerator->getManyUser(2));
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
         ]);
