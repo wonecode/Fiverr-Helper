@@ -13,7 +13,7 @@ class BadgeFixtures extends Fixture
         $badge = new badge();
         $manager->persist($badge);
         $badge->setName('Unclassified');
-        $badge->setStatus('Reach level 3');
+        $badge->setStatus('Reach level 2');
         $badge->setImage('build/images/badge.png');
 
         $badge = new badge();

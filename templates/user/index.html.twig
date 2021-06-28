@@ -1,15 +1,17 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %}User index
+{% block title %}User management
 {% endblock %}
+
 {% block stylesheets %}
     {{ parent() }}
     {{ encore_entry_link_tags('adminUser') }}
 {% endblock %}
+
 {% block body %}
     <h1>User management</h1>
-
-    <table class="table table-hover table-striped">
+    <input type="text" id="myInput" onkeyup="searchForm()" placeholder="Search for names..">
+    <table class="table table-hover table-striped" id="myTable">
         <thead>
             <tr>
                 <th>Id</th>
@@ -18,7 +20,7 @@
                 <th>Email</th>
                 <th>Roles</th>
                 <th>Level</th>
-                <th>actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -39,8 +41,8 @@
                     <td>{{ user.level }}</td>
 
                     <td>
-                        <a href="{{ path('user_show', {'id': user.id}) }}" class="far fa-eye link-logo"></a>
-                        <a href="{{ path('user_delete', {'id': user.id}) }}" class="far fa-trash-alt link-logo delete"></a>
+                        <a href="{{ path('user_show', {'id': user.id}) }}" class="far fa-eye link-logo view"></a>
+                            {{ include('user/_delete_form.html.twig') }}
                     </td>
                 </tr>
             {% else %}
@@ -51,5 +53,30 @@
         </tbody>
     </table>
 
+<script>
+function searchForm() {
+  // Declare variables
+  var input, filter, table, tr, td, i, txtValue;
+  // Id of search input
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  // Id of table
+  table = document.getElementById("myTable");
+  // Tag of research case
+  tr = table.getElementsByTagName("tr");
 
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[2]; // change Index to column you want
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
 {% endblock %}
