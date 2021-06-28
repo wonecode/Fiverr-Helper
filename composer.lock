@@ -3461,6 +3461,9 @@
             ],
             "description": "Allows to easily create, process and reuse HTML forms",
             "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/form/tree/v5.3.2"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
