@@ -1,0 +1,55 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}User index
+{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('adminUser') }}
+{% endblock %}
+{% block body %}
+    <h1>User management</h1>
+
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Image</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Roles</th>
+                <th>Level</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+                <tr class="align-middle">
+                    <td >{{ user.id }}</td>
+                    <td><img src="{{ user.image }}"></td>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>
+                        {% if user.roles == ["ROLE_USER"] %}
+                            User
+                        {% elseif user.roles == ["ROLE_admin"] %}
+                            Admin
+                        {% endif %}
+                    </td>
+
+                    <td>{{ user.level }}</td>
+
+                    <td>
+                        <a href="{{ path('user_show', {'id': user.id}) }}" class="far fa-eye link-logo"></a>
+                        <a href="{{ path('user_delete', {'id': user.id}) }}" class="far fa-trash-alt link-logo delete"></a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="8">no records found</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}

@@ -1,0 +1,76 @@
+@import 'variables';
+
+$height: 80vh;
+$width: 100vw;
+$spacing: 3vh;
+
+body {
+    font-family: $font-p;
+    height: 100vh;
+    background-color: $light;
+
+    .page-title {
+        h1 {
+            color: $dark;
+            font-size: 5rem;
+            font-weight: bold;
+            height: 10vh;
+
+            span {
+                color: $primary;
+                font-size: 7rem;
+            }
+
+            @media screen and (max-width: 590px) {
+                font-size: 2em;
+            }
+        }
+    }
+
+    .admin-container {
+        height: 70vh;
+        display: flex;
+        align-items: center;
+        .card-row {
+            margin-bottom: $spacing;
+
+            .card {
+                background-color: $white;
+                border-radius: 30px;
+                margin-top: $spacing;
+                height: 35vh;
+                box-shadow: 0px 2.5px 5px 1px rgba(0, 0, 0, 0.55);
+                
+                .logoAdmin {
+                    font-size: 10vh;
+                    padding: $spacing;
+                    color: $dark;
+                }
+
+                .description {
+                    color: $dark;
+                }
+
+                .btn-admin {
+                    border: 2px solid $light;
+                    color: $white;
+                    background-color: $primary;
+                    border-color: $light;
+                    background: {
+                        image: linear-gradient(
+                            45deg,
+                            $dark 50%,
+                            transparent 50%
+                        );
+                    }
+
+                    &:hover {
+                        color: $primary;
+                        border-color: $light;
+                    }
+                }
+            }
+        }
+    }
+
+}
