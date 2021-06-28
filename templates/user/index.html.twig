@@ -18,7 +18,7 @@
                 <th>Email</th>
                 <th>Roles</th>
                 <th>Level</th>
-                <th>actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -39,8 +39,8 @@
                     <td>{{ user.level }}</td>
 
                     <td>
-                        <a href="{{ path('user_show', {'id': user.id}) }}" class="far fa-eye link-logo"></a>
-                        <a href="{{ path('user_delete', {'id': user.id}) }}" class="far fa-trash-alt link-logo delete"></a>
+                        <a href="{{ path('user_show', {'id': user.id}) }}" class="far fa-eye link-logo view"></a>
+                            {{ include('user/_delete_form.html.twig') }}
                     </td>
                 </tr>
             {% else %}

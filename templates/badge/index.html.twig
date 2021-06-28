@@ -1,40 +1,44 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %}Badge index{% endblock %}
+{% block title %}Badge index
+{% endblock %}
 {% block stylesheets %}
     {{ parent() }}
-    {{ encore_entry_link_tags('admin') }}
+    {{ encore_entry_link_tags('adminBadge') }}
 {% endblock %}
 {% block body %}
     <h1>Badge index</h1>
     <a href="{{ path('badge_new') }}" class="btn btn-primary">Create new</a>
-    <table class="table table-hover">
+    <table class="table table-hover table-striped">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Name</th>
-                <th>Status</th>
-                <th>Image</th>
-                <th>actions</th>
+                <th>Description</th>
+                <th>Badge</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
-        {% for badge in badges %}
-            <tr>
-                <td>{{ badge.id }}</td>
-                <td>{{ badge.name }}</td>
-                <td>{{ badge.status ? 'Yes' : 'No' }}</td>
-                <td>{{ badge.image }}</td>
-                <td>
-                    <a href="{{ path('badge_show', {'id': badge.id}) }}" class="far fa-eye link-logo"></a>
-                    <a href="{{ path('badge_edit', {'id': badge.id}) }}" class="far fa-edit link-logo"></a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
-        {% endfor %}
+            {% for badge in badges %}
+                <tr class="align-middle">
+                    <td>{{ badge.id }}</td>
+                    <td>{{ badge.name }}</td>
+                    <td>{{ badge.status }}</td>
+                    <td>
+                    <img src="{{ asset(badge.image) }}" class="img-badge"></img>
+                        
+                    </td>
+                    <td>
+                        <a href="{{ path('badge_show', {'id': badge.id}) }}" class="far fa-eye link-logo view"></a>
+                        <a href="{{ path('badge_edit', {'id': badge.id}) }}" class="far fa-edit link-logo"></a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5">no records found</td>
+                </tr>
+            {% endfor %}
         </tbody>
     </table>
 

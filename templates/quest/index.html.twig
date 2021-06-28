@@ -3,32 +3,33 @@
 {% block title %}Quest index{% endblock %}
 {% block stylesheets %}
     {{ parent() }}
-    {{ encore_entry_link_tags('admin') }}
+    {{ encore_entry_link_tags('adminQuest') }}
 {% endblock %}
 {% block body %}
     <h1>Quest index</h1>
     <a href="{{ path('quest_new') }}" class="btn btn-primary">Create new</a>
-    <table class="table table-hover">
+
+    <table class="table table-hover table-striped">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Name</th>
                 <th>Description</th>
                 <th>Experience</th>
-                <th>MinimumLevel</th>
-                <th>actions</th>
+                <th>Levelmin</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for quest in quests %}
-            <tr>
+            <tr class="align-middle">
                 <td>{{ quest.id }}</td>
                 <td>{{ quest.name }}</td>
                 <td>{{ quest.description }}</td>
                 <td>{{ quest.experience }}</td>
                 <td>{{ quest.minimumLevel }}</td>
-                <td>
-                    <a href="{{ path('quest_show', {'id': quest.id}) }}" class="far fa-eye link-logo"></a>
+                <td class="d-flex no-wrap">
+                    <a href="{{ path('quest_show', {'id': quest.id}) }}" class="far fa-eye link-logo view"></a>
                     <a href="{{ path('quest_edit', {'id': quest.id}) }}" class="far fa-edit link-logo"></a>
                 </td>
             </tr>
