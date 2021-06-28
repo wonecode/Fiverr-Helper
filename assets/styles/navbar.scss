@@ -1,5 +1,21 @@
 @import 'variables';
 
-img {
-    width: 100px;
+nav {
+    img {
+        width: 100px;
+    }
+    
+    a {
+        font-family: $font-p;
+        font-weight: 200;
+    }
+
+    .join {
+        font-family: $font-p;
+        font-weight: 200;
+
+        &:hover {
+            color: $white;
+        }
+    }
 }

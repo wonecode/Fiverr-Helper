@@ -1,8 +1,12 @@
 @font-face {
-    font-family: 'Macan';
-    src: url('../fonts/Macan-Black.ttf');
+    font-family: 'Macan Regular';
+    src: url('../fonts/Macan-Regular.ttf');
 }
 
 $primary: #1dbf73;
 $warning: #d0e500;
-$default: #f1f1f1;
+$light: #e4e4e4;
+$dark: #222222;
+$white: #f1f1f1;
+
+$font-p: 'Macan Regular';
