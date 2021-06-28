@@ -1,8 +1,10 @@
 @import 'variables';
 
 nav {
+    background-color: rgb(255, 255, 255);
+
     img {
-        width: 100px;
+        width: 90px;
     }
 
     a {
@@ -17,74 +19,6 @@ nav {
         &:hover {
             color: $white;
         }
-    }
-}
-
-
-.navbar {
-    $height: 100px;
-    $font-size-navbar: 1.3em;
-    font-size: $font-size-navbar;
-
-    .logo-navbar {
-        $width-logo: 80px;
-        width: $width-logo;
-        font-size: 30px;
-        @media screen and (max-width: 768px) {
-            width: 60px;
-            font-size: 20px;
-        }
-    }
-
-    .navbar-toggler {
-        border: 0;
-
-        &:focus,
-        &:active,
-        .navbar-toggler-icon {
-            box-shadow: none;
-            outline: none;
-
-            &:focus {
-                box-shadow: none;
-                outline: none;
-            }
-        }
-    }
-
-    .fa-bars {
-        $font-size: 40px;
-        color: $primary;
-        font-size: $font-size;
-    }
-
-    a {
-        $duration: 0.5s;
-        transition: $duration ease-out;
-        z-index: 1;
-
-        img {
-            transition: $duration ease-out;
-        }
-
-        &:hover {
-            $brightness: 100%;
-            color: $warning;
-            filter: brightness($brightness);
-            transition: $duration ease-out;
-
-            img {
-                transition: $duration ease-out;
-                -webkit-transform: scaleX(-1);
-                transform: scaleX(-1);
-            }
-        }
-    }
-
-    #inputEmail,
-    #inputPassword,
-    .dropdown-item {
-        font-family: $font-p;
     }
 
     .dropdown {
