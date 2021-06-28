@@ -7,16 +7,11 @@
 
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/app.scss';
-
-// start the Stimulus application
 import './bootstrap';
-
-import UIkit from 'uikit';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
+const bootstrap = require('bootstrap');
+
 // loads AOS library
 AOS.init();
-
-// loads UIkit
-UIkit.init();

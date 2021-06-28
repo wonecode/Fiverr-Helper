@@ -15,9 +15,7 @@
         {% endblock %}
     </head>
     <body>
-        <header>
-            {% include "components/_navbar.html.twig"%}
-        </header>
+        {% block navbar %}{% endblock %}
         {% block body %}{% endblock %}
     </body>
 </html>

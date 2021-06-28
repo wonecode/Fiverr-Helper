@@ -1,0 +1,11 @@
+{% extends "base.html.twig" %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    {{ encore_entry_link_tags('navbar') }}
+{% endblock %}
+
+{% block navbar %}
+    {% include "components/_navbar.html.twig" %}
+{% endblock %}

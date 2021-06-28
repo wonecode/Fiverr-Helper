@@ -1,24 +1,20 @@
-<nav class="uk-container uk-navbar">
-    <div class="uk-navbar-left">
-        <ul class="uk-navbar-nav">
-            <li class="uk-active">
-                <a href="#">Five<strong class="uk-text-primary">rr.</strong>
-                </a>
-            </li>
-        </ul>
-    </div>
-    <div class="uk-navbar-right">
-        <ul class="uk-navbar-nav uk-visible@s">
-            <li>
-                <a class="uk-text-large" href="#">about</a>
-            </li>
-            <li>
-                <a class="uk-text-large" href="#">blog</a>
-            </li>
-            <li>
-                <a class="uk-text-large uk-text-primary" href="#">sign in</a>
-            </li>
-        </ul>
-        <a href="#" class="uk-navbar-toggle uk-hidden@s" uk-navbar-toggle-icon uk-toggle="target: #sidenav"></a>
+<nav class="navbar navbar-expand-lg bg-light navbar-color py-3">
+    <div class="container-fluid">
+        <a class="navbar-brand logo-navbar col-3" href="{{ path('home') }}">
+            <img src="{{ asset('build/images/Fiverr_Logo_GreenGreen_RGB.svg') }}" alt="logo" class="logo-navbar me-1">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active py-2" aria-current="page" href="#">Sign in</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active py-2" aria-current="page" href="#">Join</a>
+                </li>
+            </div>
+        </div>
     </div>
 </nav>
