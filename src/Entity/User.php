@@ -72,11 +72,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $experience;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Quest::class, inversedBy="users")
+     * @ORM\JoinTable(name="user_quest")
+     */
+    private $finishedQuest;
+
     public function __construct()
     {
         $this->helps = new ArrayCollection();
         $this->helpRequests = new ArrayCollection();
         $this->comments = new ArrayCollection();
+        $this->finishedQuest = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -294,6 +301,30 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setExperience(int $experience): self
     {
         $this->experience = $experience;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Quest[]
+     */
+    public function getFinishedQuest(): Collection
+    {
+        return $this->finishedQuest;
+    }
+
+    public function addFinishedQuest(Quest $finishedQuest): self
+    {
+        if (!$this->finishedQuest->contains($finishedQuest)) {
+            $this->finishedQuest[] = $finishedQuest;
+        }
+
+        return $this;
+    }
+
+    public function removeFinishedQuest(Quest $finishedQuest): self
+    {
+        $this->finishedQuest->removeElement($finishedQuest);
 
         return $this;
     }

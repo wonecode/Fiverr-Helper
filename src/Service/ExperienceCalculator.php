@@ -3,10 +3,12 @@
 namespace App\Service;
 
 use App\Entity\User;
-use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use App\Entity\Quest;
 use Doctrine\ORM\EntityManager;
+use App\Repository\UserRepository;
+use App\Repository\QuestRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
 class ExperienceCalculator
 {
@@ -423,6 +425,8 @@ class ExperienceCalculator
     public function isAvailable(Quest $quest)
     {
         if ($this->user->getLevel() >= $quest->getMinimumLevel()) {
+            if ($this->user->getFinishedQuest()) {
+            }
             return true;
         }
         return false;
@@ -453,5 +457,12 @@ class ExperienceCalculator
                 $em->flush();
             }
         }
+    }
+
+    // Save quest and user in user_quest table
+    public function isAlreadyDo(Quest $quest, EntityManagerInterface $em)
+    {
+       $this->user->addFinishedQuest($quest);
+       $em->flush();
     }
 }
