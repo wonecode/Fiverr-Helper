@@ -19,6 +19,10 @@
             <h2 class="h2 fw-light">Help freelancers and gain level experience</h2>
             <a href="{{ path('help_new') }}" class="btn btn-primary fw-bold text-white mt-md-3 mt-1">Create help request</a>
         </header>
+        {{ form_start(filter)}}
+        {{ form_widget(filter) }}
+        <button class="btn btn-primary mt-3">Ask for help</button>
+        {{form_end(filter)}}
         <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-3 card-group">
             {% for help in helps %}
                 <div data-aos="fade-up" class="col px-2">
