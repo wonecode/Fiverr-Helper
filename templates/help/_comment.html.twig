@@ -1,20 +1,31 @@
 {% for comment in help.comments %}
-    <div class="d-flex flex-row profile-card align-items-center mb-3">
-        <img src="{{ comment.user.image }}" alt="picture of {{ comment.user.username }}" class="me-3">
-        <div>
-            <h3 class="h4 mb-0 text-dark text-wrap">{{ comment.user.username }}</h3>
-            <p class="mb-0 badge bg-primary">
-                Level
-                {{ comment.user.level }}
-            </p>
+    <div class="d-flex flex-row profile-card align-items-center mb-3 w-100">
+        <div class="d-flex flex-row align-items-end justify-content-between w-100">
+            <div class="d-flex flex-row">
+                <img src="{{ comment.user.image }}" alt="picture of {{ comment.user.username }}" class="me-3">
+                <div>
+                    <h3 class="h4 mb-0 text-dark text-wrap">{{ comment.user.username }}</h3>
+                    <p class="mb-0 badge bg-primary">
+                        Level
+                        {{ comment.user.level }}
+                    </p>
+                </div>
+            </div>
+            <div class="d-flex flex-row align-items-center">
+                {% if app.user is defined and app.user.email == comment.user.email or is_granted('ROLE_ADMIN') %}
+                    {% include "comment/_delete_form.html.twig" %}
+                {% endif %}
+                {% if app.user is defined and app.user.email == help.applicant.email or is_granted('ROLE_ADMIN') %}
+                    <a title="Solved your problem" class="text-white btn btn-primary ms-2 btn-sm" href="{{ path('help_close', {help: help.id}) }}">
+                        <i class="fas fa-check"></i>
+                    </a>
+                {% endif %}
+            </div>
         </div>
     </div>
     <div class="p-4 shadow-sm content">
         <p class="m-0 p-0">{{ comment.comment }}</p>
     </div>
-    {% if app.user is defined and app.user.email == help.applicant.email or is_granted('ROLE_ADMIN') %}
-        <a class="btn btn-primary btn-sm" href="{{ path('help_close', {help: help.id}) }}">Solved my problem</a>
-    {% endif %}
     <hr class="my-4">
 {% else %}
     <p class="badge bg-warning">No answer yet, be the first now !</p>

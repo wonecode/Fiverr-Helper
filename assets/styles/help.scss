@@ -1,9 +1,5 @@
 @import 'variables';
 
-#comment-input {
-    display: none;
-}
-
 .help-index {
     h1 {
         font-family: $title;
@@ -79,6 +75,10 @@
             object-fit: cover;
             border-radius: 50%;
         }
+
+        @media screen and (max-width: 740px) {
+            width: 100%;
+        }
     }
 
     .content {
@@ -96,22 +96,43 @@
 
         .profile-card {
             background-color: $white;
-    
+
             h3 {
                 font-size: 16px;
                 font-family: $title;
             }
-    
+
             p {
                 font-size: 11px;
             }
-    
+
             img {
                 height: 40px;
                 width: 40px;
                 object-fit: cover;
                 border-radius: 50%;
             }
+        }
+
+        .delete-comment {
+            border: none;
+            font-size: 13px;
+        }
+
+        .fa-check {
+            font-size: 15px;
+            vertical-align: middle;
+        }
+
+        .fa-trash-alt {
+            font-size: 16px;
+            padding: 3.6px 1px;
+        }
+
+        .form-control {
+            background-color: white;
+            border: none;
+            height: 140px;
         }
     }
 }
