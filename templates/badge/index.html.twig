@@ -14,9 +14,20 @@
 
 
     <h1>Badge management</h1>
-    <a href="{{ path('badge_new') }}" class="btn btn-primary">Create new</a>
 
-    <input type="text" id="myInput" onkeyup="searchForm()" placeholder="Search for names..">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-2 d-flex justify-content-start">
+                <a href="{{ path('admin') }}" class="far fa-arrow-alt-circle-left back-button">
+                    <span>Back to index</span>
+                </a>
+            </div>
+            <div class="col-sm-8"></div>
+            <div class="col-sm-2 d-flex justify-content-end">
+                <input type="text" id="myInput" onkeyup="searchForm()" placeholder="Search for names.."></div>
+        </div>
+    </div>
+    <a href="{{ path('badge_new') }}" class="btn btn-primary">Create new</a>
 
     <table class="table table-hover table-striped" id="myTable">
         <thead>
@@ -43,7 +54,7 @@
                     </td>
                 </tr>
 
-                <div class="modal fade" id="exampleModal{{ badge.id }}" tabindex="-1" aria-labelledby="exampleModalLabel">
+                <div class="modal fade" id="exampleModal{{ badge.id }}" tabindex="-1" aria-labelledby="exampleModalLabel" data-bs-backdrop="static">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">

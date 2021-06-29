@@ -16,7 +16,7 @@ class ProfileController extends AbstractController
     public function index(UserRepository $userRepository, QuestRepository $questRepository): Response
     {
         return $this->render('profile/index.html.twig', [
-            'user' => $userRepository->find(3),
+            'user' => $userRepository->find(23),
             'quests' => $questRepository->findAll(),
         ]);
     }

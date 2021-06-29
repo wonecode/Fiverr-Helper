@@ -1,0 +1,55 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}
+    {{ parent() }}
+    - Help freelancers
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    {{ encore_entry_link_tags('help') }}
+{% endblock %}
+
+{% block body %}
+    <main class="container p-md-5 p-4 help-index">
+        <header class="py-md-5 py-4">
+            <h1 class="h1 text-dark fw-bold mt-5">Help freelancers<i class="fas fa-circle text-primary"></i>
+            </h1>
+            <h2 class="h2 fw-light">Help freelancers and gain level experience</h2>
+            <a href="{{ path('help_new') }}" class="btn btn-primary fw-bold text-white mt-md-3 mt-1">Create help request</a>
+        </header>
+        {{ form_start(filter, {'attr': {'id': 'filter-form'}})}}
+        {{form_label(filter.category)}}
+        {{ form_widget(filter.category, {'attr': {'class': 'category'}}) }}
+        {{ form_label(filter.active)}}
+        {{ form_widget(filter.active, {'attr': {'class': 'chk-active'}})}}
+        {{form_end(filter)}}
+        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-3 card-group">
+            {% for help in helps %}
+                <div data-aos="fade-up" class="col px-2">
+                    <div class="card-help p-5">
+                        <div class="card-help-header d-flex flex-row align-items-center mb-2">
+                            <img src="{{ help.applicant.image }}" alt="profile-pic" class="me-3">
+                            <div class="card-help-titles">
+                                <h3 class="text-wrap mb-0 text-primary">{{ help.applicant.username }}</h3>
+                                <p class="mb-0 badge bg-primary">
+                                    Level
+                                    {{ help.applicant.level }}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card-help-body mt-4">
+                            <p class="mb-0 badge {{ help.category.color }}">
+                                {{ help.category.name }}
+                            </p>
+                            <h3 class="mt-3 fw-bold">{{ help.subject }}</h3>
+                            <p>{{ help.description }}</p>
+                        </div>
+                        <a class="btn btn-primary btn-sm text-white fw-bold w-100" href="{{ path('help_show', {help: help.id}) }}">Help me</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </main>
+{% endblock %}

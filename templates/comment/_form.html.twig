@@ -1,0 +1,5 @@
+{{ form_start(form, {'attr': {'id': 'add-comment'}}) }}
+{{ form_label(form.comment, null) }}
+{{ form_widget(form.comment, {'attr': {'class': 'form-control shadow-sm p-3 mb-3 rounded mt-4'}}) }}
+<button class="btn btn-sm btn-primary text-white fw-bold send-comment">{{ button_label|default('Send your answer') }}</button>
+{{ form_end(form) }}

@@ -1,0 +1,17 @@
+{% extends 'layout.html.twig' %}
+{% form_theme form 'bootstrap_5_layout.html.twig' %}
+
+{% block body %}
+    {{ form_start(form)}}
+    <div class="mt-3">
+        {{form_label(form.subject)}}
+        {{form_widget(form.subject)}}
+    </div>
+    <div class="mt-3">
+        {{form_label(form.description)}}
+        {{form_widget(form.description)}}
+    </div>
+    <button class="btn btn-warning mt-3 col-2">Edit your request</button>
+    {{form_end(form)}}
+    {% include "help/_delete_form.html.twig" %}
+{% endblock %}

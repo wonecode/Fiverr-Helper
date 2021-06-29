@@ -9,16 +9,8 @@ nav {
 
     a {
         font-family: $font-p;
-        font-weight: 200;
-    }
-
-    .join {
-        font-family: $font-p;
-        font-weight: 200;
-
-        &:hover {
-            color: $white;
-        }
+        font-weight: 600;
+        font-size: 15px;
     }
 
     .dropdown {
