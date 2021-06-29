@@ -9,8 +9,21 @@
 {% endblock %}
 
 {% block body %}
+
     <h1>User management</h1>
-    <input type="text" id="myInput" onkeyup="searchForm()" placeholder="Search for names..">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-2 d-flex justify-content-start">
+                <a href="{{ path('admin') }}" class="far fa-arrow-alt-circle-left back-button">
+                    <span>Back to index</span>
+                </a>
+            </div>
+            <div class="col-sm-8"></div>
+            <div class="col-sm-2 d-flex justify-content-end">
+                <input type="text" id="myInput" onkeyup="searchForm()" placeholder="Search for names.."></div>
+        </div>
+    </div>
+
     <table class="table table-hover table-striped" id="myTable">
         <thead>
             <tr>
@@ -58,16 +71,20 @@
                                 <img src="{{ user.image }}" class="rounded-circle">
                                 <p class="card-text">{{ user.email }}</p>
                                 <p class="card-text">
-                                    Role : <span class="text-primary">
-                                    {% if user.roles == ["ROLE_USER"] %}
-                                        User
-                                    {% elseif user.roles == ["ROLE_admin"] %}
-                                        Admin
-                                    {% endif %}
+                                    Role :
+                                    <span class="text-primary">
+                                        {% if user.roles == ["ROLE_USER"] %}
+                                            User
+                                        {% elseif user.roles == ["ROLE_admin"] %}
+                                            Admin
+                                        {% endif %}
                                     </span>
                                 </p>
                                 <p class="card-text">Level :
-                                   <span class="text-primary"> {{ user.level }} </span></p>
+                                    <span class="text-primary">
+                                        {{ user.level }}
+                                    </span>
+                                </p>
                                 <a href="#" class="btn btn-primary">close</a>
                             </div>
                         </div>

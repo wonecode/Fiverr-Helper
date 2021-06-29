@@ -17,6 +17,15 @@ body {
         margin-top: 10vh;
     }
 
+    .back-button{ 
+        font-size: 5vh;
+        display: flex;
+        span{
+            font-size: 1.5vh;
+            align-self: center;
+        }
+    }
+
     table {
         .link-logo {
             font-size: 20px;
