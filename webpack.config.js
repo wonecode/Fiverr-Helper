@@ -40,6 +40,7 @@ Encore
     .addStyleEntry('home', './assets/styles/home.scss')
     .addStyleEntry('admin', './assets/styles/admin.scss')
     .addStyleEntry('adminUser', './assets/styles/adminUser.scss')
+    .addStyleEntry('profile', './assets/styles/profile.scss')
     .addStyleEntry('help', './assets/styles/help.scss')
     .addStyleEntry('adminQuest', './assets/styles/adminQuest.scss')
     .addStyleEntry('adminBadge', './assets/styles/adminBadge.scss')

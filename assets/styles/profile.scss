@@ -1,0 +1,69 @@
+@import "variables.scss";
+
+.profile-head {
+    background: no-repeat center/100%
+        url('/assets/images/Fiverr_11_Rooted_Lifestyle_01484.jpg');
+    object-fit: cover;
+    height: 60vh;
+    font-family: $font-p;
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+    font-size: 3.6em;
+    font-family: $font-p;
+    font-weight: bold;
+    text-shadow: 3px 3px 0px rgba(68, 68, 68, 0.55);
+    letter-spacing: -1px;
+}
+
+.information {
+    font-family: $font-p;
+    text-align-last: center;
+}
+
+.quests {
+    font-family: $font-p;
+    text-align: center;
+}
+
+span {
+   color: $primary; 
+}
+
+.profile-head span {
+    letter-spacing: -3px;
+    font-weight: bold;
+    font-family: 'Domaine';
+    color: #68f5b3;
+}
+
+.profil-card-skills {
+    background-color: #68f5b3;
+}
+
+.btn {
+    background-color: #3fc988;
+    color: $white;
+    font-weight: bold;
+    font-size: 18px;
+
+    @media screen and (max-width: 740px) {
+        margin-top: 15px;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 730px) {
+    .profile-head {
+        margin-top: -10px;
+    }
+}
+
+@media screen and (max-width: 812px) {
+    .profile-head {
+        margin-top: -50px;
+    }
+
+}
