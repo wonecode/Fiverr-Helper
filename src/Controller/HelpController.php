@@ -4,8 +4,10 @@ namespace App\Controller;
 
 use App\Entity\Help;
 use App\Form\HelpType;
-use App\Repository\HelpRepository;
 use DateTimeImmutable;
+use App\Entity\Comment;
+use App\Form\CommentType;
+use App\Repository\HelpRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,11 +24,15 @@ class HelpController extends AbstractController
      */
     public function index(HelpRepository $helpRepository): Response
     {
-        $helps = $helpRepository->findAll();
-        return $this->render('help/index.html.twig',
-        [
-            'helps' => $helps
+        $helps = $helpRepository->findBy([
+            'active' => true
         ]);
+        return $this->render(
+            'help/index.html.twig',
+            [
+                'helps' => $helps
+            ]
+        );
     }
 
     /**
@@ -52,6 +58,35 @@ class HelpController extends AbstractController
         return $this->render('help/new.html.twig', [
             'form' => $form->createView(),
         ]);
+    }
+
+    /**
+     * @Route("/{help}", name="show")
+     */
+    public function show(Help $help, Request $request, EntityManagerInterface $em): Response
+    {
+        $comment = new Comment();
+        $form = $this->createForm(CommentType::class, $comment);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $comment->setUser($this->getUser());
+            $comment->setHelp($help);
+            $em->persist($comment);
+
+            $help->addAssist($this->getUser());
+
+            $em->flush();
+            return $this->redirectToRoute('help_show', ['help' => $help->getId()]);
+        }
+
+        return $this->render(
+            'help/show.html.twig',
+            [
+                'help' => $help,
+                'form' => $form->createView()
+            ]
+        );
     }
 
     /**
@@ -88,5 +123,16 @@ class HelpController extends AbstractController
         }
 
         return $this->redirectToRoute('home');
+    }
+
+    /**
+     * @Route("/close/{help}", name="close")
+     */
+    public function close(Help $help, EntityManagerInterface $em): Response
+    {
+        $help->setActive(false);
+        $em->flush();
+
+        return $this->redirectToRoute('help_index');
     }
 }

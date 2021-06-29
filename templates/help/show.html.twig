@@ -1,0 +1,39 @@
+{% extends 'layout.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('help') }}
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('comment') }}
+{% endblock %}
+
+{% block body %}
+    <img src="{{ help.applicant.image }}" alt="picture of {{ help.applicant.username }}">
+    <h1>{{ help.subject }}</h1>
+    <p>Description:
+        {{ help.description }}</p>
+
+    <div class="">
+        <h2>Comments:</h2>
+        <div class="comments">
+            <div class="new-comment mb-3">
+                {% include "comment/new.html.twig" %}
+            </div>
+            <div class="comments-show">
+                {% for comment in help.comments %}
+                    <img src="{{ comment.user.image }}" alt="picture of {{ comment.user.username }}">
+                    <h4>{{ comment.user.username }}</h4>
+                    {{ comment.comment }}
+                    {% if app.user is defined and app.user.email == help.applicant.email or is_granted('ROLE_ADMIN') %}
+                        <a class="btn btn-primary btn-sm" href="{{ path('help_close', {help: help.id}) }}">Solved my problem</a>
+                    {% endif %}
+                {% else %}
+                    <p>No comments</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
