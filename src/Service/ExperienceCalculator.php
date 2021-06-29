@@ -454,7 +454,7 @@ class ExperienceCalculator
     }
 
     // Check if user have minimum Experience to reach next level
-    public function canLevelUp(EntityManagerInterface $em)
+    public function canLevelUp(User $user, EntityManagerInterface $em)
     {
         /*
         * Your actual Step
@@ -462,12 +462,12 @@ class ExperienceCalculator
         */
 
         // Verify if user is max level 
-        if ($this->user->getLevel() < 100) {
+        if ($user->getLevel() < 100) {
             // Needed Experience to level up
-            $neededExperience = self::LEVEL_TABLE[$this->user->getLevel()][1];
+            $neededExperience = self::LEVEL_TABLE[$user->getLevel()][1];
 
-            if ($this->user->getExperience() >= $neededExperience) {
-                $this->user->setLevel(self::LEVEL_TABLE[$this->user->getLevel()][0]);
+            if ($user->getExperience() >= $neededExperience) {
+                $user->setLevel(self::LEVEL_TABLE[$user->getLevel()][0]);
                 $em->flush();
             }
         }

@@ -7,9 +7,11 @@ use App\Form\HelpType;
 use DateTimeImmutable;
 use App\Entity\Comment;
 use App\Entity\FilterCategory;
+use App\Entity\User;
 use App\Form\CommentType;
 use App\Form\FilterCategoryType;
 use App\Repository\HelpRepository;
+use App\Service\ExperienceCalculator;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -26,6 +28,7 @@ class HelpController extends AbstractController
      */
     public function index(HelpRepository $helpRepository, Request $request): Response
     {
+        
         $helps = $helpRepository->findBy([
             'active' => true
         ]);
@@ -147,10 +150,13 @@ class HelpController extends AbstractController
     }
 
     /**
-     * @Route("/close/{help}", name="close")
+     * @Route("/close/{help}/{user}", name="close")
      */
-    public function close(Help $help, EntityManagerInterface $em): Response
+    public function close(Help $help, EntityManagerInterface $em, User $user, ExperienceCalculator $experienceCalculator): Response
     {
+       
+        $user->setExperience($user->getExperience() + 25);
+        $experienceCalculator->canLevelUp($user, $em);
         $help->setActive(false);
         $em->flush();
 
