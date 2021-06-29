@@ -1,6 +1,10 @@
 {% extends 'layout.html.twig' %}
 
 {% block body %}
+    {{ form_start(filter)}}
+    {{ form_widget(filter) }}
+    <button class="btn btn-primary mt-3">Ask for help</button>
+    {{form_end(filter)}}
     <a href="{{ path('help_new') }}">Create a new help request</a>
     <table class="table table-striped table-hover mt-3">
         <thead>
@@ -17,9 +21,12 @@
                     <td>{{ help.applicant.username }}</td>
                     <td>{{ help.subject }}</td>
                     <td>{{ help.description }}</td>
-                    <td><a class="btn btn-primary btn-sm" href="{{ path('help_show', {help: help.id}) }}">Help me</a></td>
+                    <td>
+                        <a class="btn btn-primary btn-sm" href="{{ path('help_show', {help: help.id}) }}">Help me</a>
+                    </td>
                 </tr>
             {% endfor %}
         </tbody>
     </table>
 {% endblock %}
+
