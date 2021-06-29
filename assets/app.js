@@ -19,11 +19,13 @@ AOS.init();
 if (document.querySelector('.category')) {
     const filterCategory = document.querySelector('.category');
     const filterForm = document.getElementById('filter-form');
-    const filterActive = document.querySelector('.chk-active');
+
     filterCategory.addEventListener('change', () => {
         filterForm.submit();
     });
+
+    const filterActive = document.getElementById('filter_category_active');
     filterActive.addEventListener('change', () => {
         filterForm.submit();
-    });
+    })
 }

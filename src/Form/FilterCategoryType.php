@@ -6,8 +6,7 @@ use App\Entity\Category;
 use App\Entity\FilterCategory;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -24,11 +23,19 @@ class FilterCategoryType extends AbstractType
                 'required' => false,
                 'label' => 'Filter by category'
             ])
-            ->add('active', CheckboxType::class, [
-                'required' => false,
-                'label' => 'Unsolved'
-            ])
-        ;
+            ->add('active', ChoiceType::class, [
+                'label' => false,
+                'choices' => [
+                    'Unsolved' => 'unsolved',
+                    'Solved' => 'solved',
+                    'All' => 'all',
+                ],
+                'expanded' => true,
+                'data' => 'unsolved',
+                'attr' => [
+                    'class' => ('')
+                ]
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
