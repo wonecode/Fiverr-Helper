@@ -10,6 +10,16 @@
     justify-content: center;
 }
 
+.badges img {
+    height: 5vh;
+    width: 2vw;
+}
+
+.profile-name {
+    font-family: $font-s;
+    color: #3fc988;
+}
+
 h1 {
     font-size: 3.6em;
     font-family: $font-p;
