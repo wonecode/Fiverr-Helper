@@ -3,12 +3,18 @@
 body {
     background-color: $light;
 
+    button {
+        background-color: transparent;
+        border: none;
+    }
+    
     h1 {
         color: $dark;
         font-size: 3rem;
         font-weight: bold;
         text-align: center;
         padding: 20px;
+        margin-top: 10vh;
     }
 
     table {
@@ -20,8 +26,9 @@ body {
 
         .view {
             color: rgba(79, 79, 167, 0.685);
+            background-color: transparent;
         }
-        
+
         .delete {
             color: red;
         }

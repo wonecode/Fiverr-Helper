@@ -8,31 +8,31 @@ body {
         font-weight: bold;
         text-align: center;
         padding: 20px;
+        margin-top: 10vh;
     }
 
     table {
-
-        button{
+        button {
             background-color: rgba(0, 0, 0, 0);
             border: none;
         }
-        
+
         .link-logo {
             font-size: 20px;
             text-decoration: none;
             margin: 10px;
         }
 
+        img {
+            height: 100px;
+        }
+        
         .view {
             color: rgba(79, 79, 167, 0.685);
         }
 
         .delete {
             color: red;
-        }
-
-        img {
-            border-radius: 50%;
         }
     }
 }
