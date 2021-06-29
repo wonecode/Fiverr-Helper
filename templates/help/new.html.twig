@@ -4,6 +4,10 @@
 {% block body %}
     {{ form_start(form)}}
     <div class="mt-3">
+        {{form_label(form.category)}}
+        {{form_widget(form.category)}}
+    </div>
+    <div class="mt-3">
         {{form_label(form.subject)}}
         {{form_widget(form.subject)}}
     </div>

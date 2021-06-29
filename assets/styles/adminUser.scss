@@ -11,6 +11,15 @@ body {
         margin-top: 10vh;
     }
 
+    .back-button{ 
+        font-size: 5vh;
+        display: flex;
+        span{
+            font-size: 1.5vh;
+            align-self: center;
+        }
+    }
+
     table {
         button {
             background-color: rgba(0, 0, 0, 0);
