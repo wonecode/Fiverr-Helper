@@ -26,8 +26,8 @@
         <tbody>
             {% for user in users %}
                 <tr class="align-middle">
-                    <td >{{ user.id }}</td>
-                    <td><img src="{{ user.image }}"></td>
+                    <td>{{ user.id }}</td>
+                    <td><img src="{{ user.image }}" class="rounded-circle"></td>
                     <td>{{ user.username }}</td>
                     <td>{{ user.email }}</td>
                     <td>
@@ -41,10 +41,40 @@
                     <td>{{ user.level }}</td>
 
                     <td>
-                        <a href="{{ path('user_show', {'id': user.id}) }}" class="far fa-eye link-logo view"></a>
-                            {{ include('user/_delete_form.html.twig') }}
+                        <button type="button" class="btn far fa-eye link-logo view" data-bs-toggle="modal" data-bs-target="#exampleModal{{ user.id }}"></button>
+                        {{ include('user/_delete_form.html.twig') }}
                     </td>
                 </tr>
+
+
+                <div class="modal fade" id="exampleModal{{ user.id }}" tabindex="-1" aria-labelledby="exampleModalLabel">
+                    <div class="modal-dialog">
+
+                        <div class="card text-center">
+                            <div class="card-header">
+                                {{ user.username }}
+                            </div>
+                            <div class="card-body">
+                                <img src="{{ user.image }}" class="rounded-circle">
+                                <p class="card-text">{{ user.email }}</p>
+                                <p class="card-text">
+                                    Role :
+                                    {% if user.roles == ["ROLE_USER"] %}
+                                        User
+                                    {% elseif user.roles == ["ROLE_admin"] %}
+                                        Admin
+                                    {% endif %}
+                                </p>
+                                <p class="card-text">Level :
+                                    {{ user.level }}</p>
+                                <a href="#" class="btn btn-primary">close</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
             {% else %}
                 <tr>
                     <td colspan="8">no records found</td>
@@ -53,30 +83,35 @@
         </tbody>
     </table>
 
-<script>
-function searchForm() {
-  // Declare variables
-  var input, filter, table, tr, td, i, txtValue;
-  // Id of search input
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  // Id of table
-  table = document.getElementById("myTable");
-  // Tag of research case
-  tr = table.getElementsByTagName("tr");
+    <script>
+        function searchForm() { // Declare variables
+            var input,
+                filter,
+                table,
+                tr,
+                td,
+                i,
+                txtValue;
+            // Id of search input
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            // Id of table
+            table = document.getElementById("myTable");
+            // Tag of research case
+            tr = table.getElementsByTagName("tr");
 
-  // Loop through all table rows, and hide those who don't match the search query
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[2]; // change Index to column you want
-    if (td) {
-      txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }
-  }
-}
-</script>
+            // Loop through all table rows, and hide those who don't match the search query
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[2]; // change Index to column you want
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
 {% endblock %}

@@ -8,6 +8,7 @@ body {
         font-weight: bold;
         text-align: center;
         padding: 20px;
+        margin-top: 10vh;
     }
 
     table {
@@ -31,8 +32,13 @@ body {
             color: red;
         }
 
-        img {
-            border-radius: 50%;
+        .modal{
+        
+            img{
+                border-radius: 50%;
+            }
         }
     }
+
+    
 }

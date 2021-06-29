@@ -1,8 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Quest{% endblock %}
+{% block title %}Quest
+{% endblock %}
 
 {% block body %}
+
     <h1>Quest</h1>
 
     <table class="table">
@@ -30,7 +32,12 @@
         </tbody>
     </table>
 
+
     <a href="{{ path('quest_index') }}" class="btn btn-warning">back to list</a>
 
     <a href="{{ path('quest_edit', {'id': quest.id}) }}" class="btn btn-primary">edit</a>
+
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Launch demo modal
+    </button>
+    
 {% endblock %}
