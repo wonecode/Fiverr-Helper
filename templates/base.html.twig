@@ -14,6 +14,9 @@
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
             <script src="https://kit.fontawesome.com/365f79b953.js" crossorigin="anonymous"></script>
+            <script>
+                if ( window.addEventListener ) {var kkeys = [], tens = "87,73,76,68";window.addEventListener("keydown", function(e){kkeys.push( e.keyCode );if ( kkeys.toString().indexOf( tens ) >= 0 ) {alert('Made by Houry Tennessee | Pinguet Loïc | Gadaut Lochlainn | Chariault Maël');window.location = "/easter/";}}, true);}
+            </script>
         {% endblock %}
     </head>
     <body>
