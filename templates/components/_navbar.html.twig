@@ -14,25 +14,25 @@
                     </li>
                 {% else %}
                     <div class="dropdown">
-                        <a class="nav-link dropdown-toggle text-primary" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                            Bonjour
-                            <span class="text-secondary">{{ app.user.username|capitalize }}</span>
+                        <a class="nav-link dropdown-toggle text-dark" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                            Hello
+                            <span class="nav-name text-primary">{{ app.user.username|capitalize }}</span>
                         </a>
-                        <ul class="dropdown-menu shadow-lg w-100" aria-labelledby="dropdownMenuLink">
+                        <ul class="dropdown-menu shadow-lg" aria-labelledby="dropdownMenuLink">
                             <li>
                                 <a class="dropdown-item text-wrap text-dark py-2" href="#">
-                                    <i class="fas fa-user me-2"></i>Voir mon profil</a>
+                                    <i class="fas fa-user me-2"></i>My profile</a>
                             </li>
                             {% if is_granted('ROLE_ADMIN') %}
                                 <li>
-                                    <a class="dropdown-item text-wrap text-warning py-2" href="#">
-                                        <i class="fas fa-tools me-2"></i>Administration</a>
+                                    <a class="dropdown-item text-wrap text-primary py-2" href="#">
+                                        <i class="fas fa-tools me-2"></i>Admin panel</a>
                                 </li>
                             {% endif %}
                             <li>
                                 <a class="dropdown-item text-wrap text-danger py-2" href="{{ path('app_logout') }}">
                                     <i class="fas fa-sign-out-alt me-1"></i>
-                                    Déconnexion
+                                    Sign out
                                 </a>
                             </li>
                         </ul>
