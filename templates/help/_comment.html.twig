@@ -1,9 +1,9 @@
 {% for comment in help.comments %}
-    <div class="d-flex flex-row profile-card align-items-center p-3 mb-3">
+    <div class="d-flex flex-row profile-card align-items-center mb-3">
         <img src="{{ comment.user.image }}" alt="picture of {{ comment.user.username }}" class="me-3">
         <div>
-            <h3 class="h4 mb-0 text-wrap">{{ comment.user.username }}</h3>
-            <p class="mb-0 badge bg-info">
+            <h3 class="h4 mb-0 text-dark text-wrap">{{ comment.user.username }}</h3>
+            <p class="mb-0 badge bg-primary">
                 Level
                 {{ comment.user.level }}
             </p>
@@ -17,5 +17,5 @@
     {% endif %}
     <hr class="my-4">
 {% else %}
-    <p class="badge bg-warning">No comments</p>
+    <p class="badge bg-warning">No answer yet, be the first now !</p>
 {% endfor %}
