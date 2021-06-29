@@ -73,7 +73,7 @@ class HelpController extends AbstractController
             $em->persist($help);
             $em->flush();
 
-            return $this->redirectToRoute('home');
+            return $this->redirectToRoute('help_index');
         }
 
         return $this->render('help/new.html.twig', [
@@ -123,12 +123,13 @@ class HelpController extends AbstractController
             $em->flush();
             $this->addFlash('info', '
             your request for help has been modified.');
-            return $this->redirectToRoute('home');
+            return $this->redirectToRoute('help_show', ['help' => $help->getId()]);
         }
 
         return $this->render('help/edit.html.twig', [
             'help' => $help,
             'form' => $form->createView(),
+            'button_label' => 'Modify your request',
         ]);
     }
 
