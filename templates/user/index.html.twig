@@ -51,22 +51,23 @@
                     <div class="modal-dialog">
 
                         <div class="card text-center">
-                            <div class="card-header">
+                            <div class="card-header bg-dark text-light fw-bolder">
                                 {{ user.username }}
                             </div>
-                            <div class="card-body">
+                            <div class="card-body bg-">
                                 <img src="{{ user.image }}" class="rounded-circle">
                                 <p class="card-text">{{ user.email }}</p>
                                 <p class="card-text">
-                                    Role :
+                                    Role : <span class="text-primary">
                                     {% if user.roles == ["ROLE_USER"] %}
                                         User
                                     {% elseif user.roles == ["ROLE_admin"] %}
                                         Admin
                                     {% endif %}
+                                    </span>
                                 </p>
                                 <p class="card-text">Level :
-                                    {{ user.level }}</p>
+                                   <span class="text-primary"> {{ user.level }} </span></p>
                                 <a href="#" class="btn btn-primary">close</a>
                             </div>
                         </div>
