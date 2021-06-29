@@ -34,10 +34,13 @@
                             </div>
                         </div>
                         <div class="card-help-body mt-4">
+                            <p class="mb-0 badge {{ help.category.color }}">
+                                {{ help.category.name }}
+                            </p>
                             <h3 class="mt-3 fw-bold">{{ help.subject }}</h3>
                             <p>{{ help.description }}</p>
                         </div>
-                        <a class="btn btn-primary btn-sm text-white fw-bold" href="{{ path('help_show', {help: help.id}) }}">Help me</a>
+                        <a class="btn btn-primary btn-sm text-white fw-bold w-100" href="{{ path('help_show', {help: help.id}) }}">Help me</a>
                     </div>
                 </div>
             {% endfor %}

@@ -1,6 +1,6 @@
 @import 'variables';
 
-#comment-input{
+#comment-input {
     display: none;
 }
 
@@ -23,12 +23,12 @@
         font-family: $font-p;
         border-radius: 7px;
         color: $dark;
-    
+
         h3 {
             font-size: 18px;
             font-family: $title;
         }
-    
+
         img {
             width: 70px;
             height: 70px;
@@ -45,5 +45,40 @@
         &:hover {
             filter: brightness(105%);
         }
-    } 
+
+        .bg-custom-1 {
+            background-color: #0093e9;
+            background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
+        }
+
+        .bg-custom-2 {
+            background-color: #fbab7e;
+            background-image: linear-gradient(62deg, #fbab7e 0%, #f7ce68 100%);
+        }
+
+        .bg-custom-3 {
+            background-color: #ff9a8b;
+            background-image: linear-gradient(
+                90deg,
+                #ff9a8b 0%,
+                #ff6a88 55%,
+                #ff99ac 100%
+            );
+        }
+
+        .bg-custom-4 {
+            background-color: #21d4fd;
+            background-image: linear-gradient(19deg, #21d4fd 0%, #b721ff 100%);
+        }
+
+        .bg-custom-5 {
+            background-color: #fa8bff;
+            background-image: linear-gradient(
+                45deg,
+                #fa8bff 0%,
+                #2bd2ff 52%,
+                #2bff88 90%
+            );
+        }
+    }
 }
