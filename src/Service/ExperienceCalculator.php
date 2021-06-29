@@ -427,10 +427,12 @@ class ExperienceCalculator
 
     public function percentageExperience()
     {
+        if($this->user->getLevel() < 100){
        $userExperience = $this->user->getExperience();
        $neededExperience = self::LEVEL_TABLE[$this->user->getLevel()][1];
 
-        return  $userExperience * 100 / $neededExperience;
+        return  $userExperience * 100 / $neededExperience;}
+        return 100;
     }
 
     // Check if user have the minimum level to do quest

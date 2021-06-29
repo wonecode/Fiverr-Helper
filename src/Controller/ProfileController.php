@@ -17,9 +17,10 @@ class ProfileController extends AbstractController
     public function index(UserRepository $userRepository, QuestRepository $questRepository, ExperienceCalculator $experience): Response
     {
         return $this->render('profile/index.html.twig', [
-            'user' => $userRepository->find(4),
+            'user' => $userRepository->find(1),
             'quests' => $questRepository->findAll(),
             'experience' => $experience->percentageExperience(),
+            'badges'    => $this->getUser()->getBadge(),
         ]);
     }
 
