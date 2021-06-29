@@ -1,0 +1,29 @@
+@import "variables.scss";
+
+.quests {
+    font-family: $font-p;
+    text-align: center;
+}
+
+.btn-profile {
+    border: 2px solid $light;
+    color: $white;
+    background-color: $primary;
+    border-color: $light;
+    background: {
+        image: linear-gradient(
+            45deg,
+            $dark 50%,
+            transparent 50%
+        );
+    }
+
+    &:hover {
+        color: $primary;
+        border-color: $light;
+    }
+}
+
+span {
+    color: $primary;
+}

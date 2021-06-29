@@ -1,0 +1,30 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Hello ProfilController!
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	{{ encore_entry_link_tags('profile') }}
+{% endblock %}
+
+{% block body %}
+	<main class="container">
+		<div class="quests m-4">
+			<h2 class="fw-bold">Quests<span>.</span></h2>
+			{% for quest in quests %}
+				<div class="card m-4">
+					<div class="card-header fw-bold">
+						{{ quest.name }}
+					</div>
+					<div class="card-body p-4">
+						<p class="card-text">{{ quest.description }}</p>
+						<p class="card-text fw-bold">{{ quest.experience }}
+							<span>xp</span></p>
+						<a href="#" class="btn-profile btn btn-primary">Help a freelancer</a>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+</main>{% endblock %}
