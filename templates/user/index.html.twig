@@ -59,45 +59,48 @@
                     </td>
                 </tr>
 
-
-                <div class="modal fade" id="exampleModal{{ user.id }}" tabindex="-1" aria-labelledby="exampleModalLabel">
+                <div class="modal fade" id="exampleModal{{ user.id }}" tabindex="-1" aria-labelledby="exampleModalLabel" data-bs-backdrop="static">
                     <div class="modal-dialog">
-
                         <div class="card text-center">
-                            <div class="card-header bg-dark text-light fw-bolder">
-                                {{ user.username }}
-                            </div>
-                            <div class="card-body bg-">
-                                <img src="{{ user.image }}" class="rounded-circle">
-                                <p class="card-text">{{ user.email }}</p>
-                                <p class="card-text">
-                                    Role :
-                                    <span class="text-primary">
-                                        {% if user.roles == ["ROLE_USER"] %}
-                                            User
-                                        {% elseif user.roles == ["ROLE_admin"] %}
-                                            Admin
-                                        {% endif %}
-                                    </span>
-                                </p>
-                                <p class="card-text">Level :
-                                    <span class="text-primary">
-                                        {{ user.level }}
-                                    </span>
-                                </p>
-                                <a href="#" class="btn btn-primary">close</a>
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title fw-bolder" id="staticBackdropLabel">
+                                        {{ user.username }}</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <img src="{{ user.image }}" class="rounded-circle">
+                                    <p class="card-text">{{ user.email }}</p>
+                                    <p class="card-text">
+                                        Role :
+                                        <span class="text-primary">
+                                            {% if user.roles == ["ROLE_USER"] %}
+                                                User
+                                            {% elseif user.roles == ["ROLE_admin"] %}
+                                                Admin
+                                            {% endif %}
+                                        </span>
+                                    </p>
+                                    <p class="card-text">Level :
+                                        <span class="text-primary">
+                                            {{ user.level }}
+                                        </span>
+                                    </p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                </div>
                             </div>
                         </div>
-
                     </div>
-                </div>
 
 
-            {% else %}
-                <tr>
-                    <td colspan="8">no records found</td>
-                </tr>
-            {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="8">no records found</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
         </tbody>
     </table>
 
