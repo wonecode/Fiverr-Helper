@@ -94,6 +94,21 @@
         }
     }
 
+    .delete-comment {
+        border: none;
+        font-size: 13px;
+    }
+
+    .fa-check {
+        font-size: 15px;
+        vertical-align: middle;
+    }
+
+    .fa-trash-alt {
+        font-size: 16px;
+        padding: 3.6px 1px;
+    }
+
     .content {
         background-color: white;
     }
@@ -117,6 +132,10 @@
 
             p {
                 font-size: 11px;
+            }
+
+            .author {
+                font-size: 12px;
             }
 
             img {
@@ -146,6 +165,40 @@
             background-color: white;
             border: none;
             height: 140px;
+        }
+    }
+
+    .updated {
+        font-size: 13px;
+    }
+}
+
+.help-new {
+    font-family: $font-p;
+
+    h1 {
+        font-family: $title;
+
+        i {
+            font-size: 10px;
+        }
+    }
+
+    h2 {
+        font-size: 25px;
+    }
+
+    .form-control {
+        background-color: white;
+    }
+
+    .btn {
+        &:hover {
+            color: white;
+        }
+
+        @media screen and (max-width: 740px) {
+            width: 100%;
         }
     }
 }

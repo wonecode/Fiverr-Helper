@@ -4,7 +4,14 @@
             <div class="d-flex flex-row">
                 <img src="{{ comment.user.image ?? "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png" }}" alt="picture of {{ comment.user.username }}" class="me-3">
                 <div>
-                    <h3 class="h4 mb-0 text-dark text-wrap">{{ comment.user.username }}</h3>
+                    <div class="d-flex flex-row">
+                        <h3 class="h4 mb-0 text-dark text-wrap">
+                            {{ comment.user.username }}
+                        </h3>
+                        {% if help.applicant.username == comment.user.username %}
+                            <p class="mb-0 ms-1 text-muted align-items-center author">(Author)</p>
+                        {% endif %}
+                    </div>
                     <p class="mb-0 badge bg-primary">
                         Level
                         {{ comment.user.level }}
@@ -17,7 +24,7 @@
                 {% endif %}
                 {% if app.user is defined and app.user.email == help.applicant.email or is_granted('ROLE_ADMIN') %}
                     {% if help.active == true %}
-                        <a title="Solved your problem" class="text-white btn btn-primary ms-2 btn-sm" href="{{ path('help_close', {help: help.id}) }}">
+                        <a title="Solved your problem" class="text-white btn btn-primary ms-2 btn-sm" href="{{ path('help_close', {help: help.id, user: comment.user.id}) }}">
                             <i class="fas fa-check"></i>
                         </a>
                     {% endif %}

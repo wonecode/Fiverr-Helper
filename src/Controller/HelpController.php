@@ -7,9 +7,11 @@ use App\Form\HelpType;
 use DateTimeImmutable;
 use App\Entity\Comment;
 use App\Entity\FilterCategory;
+use App\Entity\User;
 use App\Form\CommentType;
 use App\Form\FilterCategoryType;
 use App\Repository\HelpRepository;
+use App\Service\ExperienceCalculator;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -26,6 +28,7 @@ class HelpController extends AbstractController
      */
     public function index(HelpRepository $helpRepository, Request $request): Response
     {
+        
         $helps = $helpRepository->findBy([
             'active' => true
         ]);
@@ -83,7 +86,7 @@ class HelpController extends AbstractController
             $em->persist($help);
             $em->flush();
 
-            return $this->redirectToRoute('home');
+            return $this->redirectToRoute('help_index');
         }
 
         return $this->render('help/new.html.twig', [
@@ -133,12 +136,13 @@ class HelpController extends AbstractController
             $em->flush();
             $this->addFlash('info', '
             your request for help has been modified.');
-            return $this->redirectToRoute('home');
+            return $this->redirectToRoute('help_show', ['help' => $help->getId()]);
         }
 
         return $this->render('help/edit.html.twig', [
             'help' => $help,
             'form' => $form->createView(),
+            'button_label' => 'Modify your request',
         ]);
     }
 
@@ -157,10 +161,13 @@ class HelpController extends AbstractController
     }
 
     /**
-     * @Route("/close/{help}", name="close")
+     * @Route("/close/{help}/{user}", name="close")
      */
-    public function close(Help $help, EntityManagerInterface $em): Response
+    public function close(Help $help, EntityManagerInterface $em, User $user, ExperienceCalculator $experienceCalculator): Response
     {
+       
+        $user->setExperience($user->getExperience() + 25);
+        $experienceCalculator->canLevelUp($user, $em);
         $help->setActive(false);
         $em->flush();
 

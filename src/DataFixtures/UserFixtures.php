@@ -15,7 +15,7 @@ class UserFixtures extends Fixture
 
     public const USERS_NUMBER = 20;
     private const LEVEL = [
-        'user' => 0,
+        'user' => 1,
         'admin' => 100
     ];
 
