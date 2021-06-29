@@ -5,6 +5,9 @@
     {% if app.user is defined and app.user.email == help.applicant.email or is_granted('ROLE_ADMIN') %}
         <a class="btn btn-primary btn-sm" href="{{ path('help_close', {help: help.id}) }}">Solved my problem</a>
     {% endif %}
+    {% if app.user is defined and app.user.email == comment.user.email or is_granted('ROLE_ADMIN') %}
+        {% include "comment/_delete_form.html.twig" %}
+    {% endif %}
 {% else %}
     <p>No comments</p>
 {% endfor %}
