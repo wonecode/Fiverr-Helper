@@ -1,0 +1,39 @@
+@import 'variables';
+
+main {
+    height: 80vh;
+    font-family: $font-p;
+
+    form {
+        width: 600px;
+
+        h1 {
+            span {
+                font-family: $title;
+                letter-spacing: -3px;
+            }
+
+            i {
+                font-size: 10px;
+            }
+        }
+
+        .form-control {
+            background-color: white;
+            border-radius: 10px;
+            padding: 11px;
+
+            &:focus {
+                background-color: white;
+            }
+        }
+
+        @media screen and (max-width: 740px) {
+            width: 90%;
+        }
+    }
+
+    @media screen and (max-width: 740px) {
+        height: 60vh;
+    }
+}

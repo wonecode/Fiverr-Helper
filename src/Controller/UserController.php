@@ -49,7 +49,7 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="user_show", methods={"GET"})
+     * @Route("/{id}/show", name="user_show", methods={"GET"})
      */
     public function show(User $user): Response
     {
@@ -79,7 +79,7 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/delete", name="user_delete", methods={"POST"})
+     * @Route("/delete/{id}", name="user_delete", methods={"POST"})
      */
     public function delete(Request $request, User $user): Response
     {

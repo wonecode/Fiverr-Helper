@@ -11,10 +11,20 @@ body {
     }
 
     table {
+
+        button{
+            background-color: rgba(0, 0, 0, 0);
+            border: none;
+        }
+        
         .link-logo {
             font-size: 20px;
             text-decoration: none;
             margin: 10px;
+        }
+
+        .view {
+            color: rgba(79, 79, 167, 0.685);
         }
 
         .delete {

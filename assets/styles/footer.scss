@@ -1,0 +1,31 @@
+@import 'variables';
+
+footer {
+    background-color: rgb(255, 255, 255);
+
+    a {
+        &:hover {
+            text-decoration: underline;
+        }
+
+        i {
+            font-size: 20px;
+            padding: 9px;
+            transition: 0.2s ease-in-out;
+
+            &:hover {
+                background-color: rgba(77, 77, 77, 0.164);
+                border-radius: 50%;
+                padding: 9px;
+            }
+        }
+    }
+
+    img {
+        width: 180px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+}

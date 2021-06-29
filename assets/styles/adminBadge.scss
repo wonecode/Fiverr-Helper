@@ -1,0 +1,36 @@
+@import 'variables';
+
+body {
+    background-color: $light;
+
+    h1 {
+        color: $dark;
+        font-size: 3rem;
+        font-weight: bold;
+        text-align: center;
+        padding: 20px;
+    }
+
+    table {
+        .link-logo {
+            font-size: 20px;
+            text-decoration: none;
+            margin: 10px;
+        }
+        img{
+            height:6vh;
+        }
+
+        .view {
+            color: rgba(79, 79, 167, 0.685);
+        }
+
+        .delete {
+            color: red;
+        }
+    }
+
+    .btn{
+        margin: 20px;
+    }
+}
