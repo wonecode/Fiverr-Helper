@@ -24,7 +24,7 @@
                 {% endif %}
                 {% if app.user is defined and app.user.email == help.applicant.email or is_granted('ROLE_ADMIN') %}
                     {% if help.active == true %}
-                        <a title="Solved your problem" class="text-white btn btn-primary ms-2 btn-sm" href="{{ path('help_close', {help: help.id}) }}">
+                        <a title="Solved your problem" class="text-white btn btn-primary ms-2 btn-sm" href="{{ path('help_close', {help: help.id, user: comment.user.id}) }}">
                             <i class="fas fa-check"></i>
                         </a>
                     {% endif %}
