@@ -26,9 +26,17 @@ nav {
             border: none;
 
             a {
-                font-size: 16px;
+                font-size: 14px;
                 font-weight: 300;
             }
+        }
+
+        .dropdown-menu {
+            left: -25%;
+        }
+
+        .nav-name {
+            font-family: $title;
         }
     }
 }
