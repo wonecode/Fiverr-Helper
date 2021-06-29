@@ -78,12 +78,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $finishedQuest;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Badge::class, inversedBy="users")
+     */
+    private $badge;
+
     public function __construct()
     {
         $this->helps = new ArrayCollection();
         $this->helpRequests = new ArrayCollection();
         $this->comments = new ArrayCollection();
         $this->finishedQuest = new ArrayCollection();
+        $this->badge = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -325,6 +331,30 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function removeFinishedQuest(Quest $finishedQuest): self
     {
         $this->finishedQuest->removeElement($finishedQuest);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Badge[]
+     */
+    public function getBadge(): Collection
+    {
+        return $this->badge;
+    }
+
+    public function addBadge(Badge $badge): self
+    {
+        if (!$this->badge->contains($badge)) {
+            $this->badge[] = $badge;
+        }
+
+        return $this;
+    }
+
+    public function removeBadge(Badge $badge): self
+    {
+        $this->badge->removeElement($badge);
 
         return $this;
     }
