@@ -4,6 +4,11 @@
 }
 
 @font-face {
+    font-family: 'Macan Black';
+    src: url('../fonts/Macan-Black.ttf');
+}
+
+@font-face {
     font-family: 'Domaine';
     src: url('../fonts/DomaineDisplayApp-MediumItalic.ttf');
 }
@@ -16,3 +21,4 @@ $dark: #3b3b3b;
 $white: #f1f1f1;
 
 $font-p: 'Macan Regular';
+$title: 'Macan Black';
