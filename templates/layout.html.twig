@@ -4,8 +4,12 @@
     {{ parent() }}
 
     {{ encore_entry_link_tags('navbar') }}
+    {{ encore_entry_link_tags('footer') }}
 {% endblock %}
 
 {% block navbar %}
     {% include "components/_navbar.html.twig" %}
+{% endblock %}
+{% block footer %}
+    {% include "components/_footer.html.twig" %}
 {% endblock %}

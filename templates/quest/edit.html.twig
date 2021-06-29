@@ -6,8 +6,8 @@
     <h1>Edit Quest</h1>
 
     {{ include('quest/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('quest_index') }}">back to list</a>
-
     {{ include('quest/_delete_form.html.twig') }}
+    <a href="{{ path('quest_index') }}" class="btn btn-warning">back to list</a>
+
+   
 {% endblock %}

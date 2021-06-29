@@ -9,22 +9,62 @@
 {% endblock %}
 
 {% block body %}
-	<main class="container">
-		<div class="quests m-4">
-			<h2 class="fw-bold">Quests<span>.</span></h2>
-			{% for quest in quests %}
-				<div class="card m-4">
-					<div class="card-header fw-bold">
-						{{ quest.name }}
+	<header class="profile-head d-flex align-items-center">
+		<div>
+			<h1 class="h1 mt-lg-5 mt-2 text-white fw-bold text-center">
+				My
+				<span class="fst-italic fw-lighter">profile</span>
+			</h1>
+			<a href="{{ path('app_login') }}" class="btn btn-lg btn-primary text-white">Help freelancers now</a>
+		</div>
+	</header>
+
+	<div class="container">
+		<div class="row m-3">
+			<div class="col-sm-4 mt-5">
+				<div class="profile-card bg-white mt-5">
+					<div class="information card-header">
+						<img class="profile-picture rounded-circle" src="{{ user.image }}" alt="Grapefruit slice atop a pile of other slices">
+						<p class="fw-bold m-3">{{ user.username }}</p>
+						<p>Rank :
+							<span class="fw-bold">{{ user.level }}</span>
+						</p>
+						<div class="progress" data-bs-toggle="tooltip" data-bs-placement=" top" title=" 55%">
+							<div class="progress-bar bg-primary" role="progressbar" style="width:55%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+						</div>
 					</div>
-					<div class="card-body p-4">
-						<p class="card-text">{{ quest.description }}</p>
-						<p class="card-text fw-bold">{{ quest.experience }}
-							<span>xp</span></p>
-						<a href="#" class="btn-profile btn btn-primary">Help a freelancer</a>
+					<div class="profile-card-skills bg-primary text-white mt-4">
+						<div class="information card-header">
+							<div class="skills fw-bold m-2">
+								<p>Skills</p>
+							</div>
+							<div class="badges fw-bold m-2">
+								<p>Badges</p>
+							</div>
+						</div>
 					</div>
 				</div>
-			{% endfor %}
+			</div>
+			<div class="col-sm-8 mt-2">
+				<div class="quests">
+					<h2 class="fw-bold m-4">Quests<span>.</span>
+					</h2>
+					{% for quest in quests %}
+						<div class="card m-4">
+							<div class="card-header fw-bold">
+								{{ quest.name }}
+							</div>
+							<div class="card-body p-4">
+								<p class="card-text">{{ quest.description }}</p>
+								<p class="card-text fw-bold">{{ quest.experience }}
+									<span class="fw-bold">xp</span>
+								</p>
+								<a href="#" class="btn-profile btn btn-primary text-light">Help a freelancer</a>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
 		</div>
 	</div>
-</main>{% endblock %}
+{% endblock %}
