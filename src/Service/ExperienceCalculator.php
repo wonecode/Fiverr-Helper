@@ -420,6 +420,18 @@ class ExperienceCalculator
         $this->user = $tokenStorage->getToken()->getUser();
     }
 
+    public function allLevel()
+    {
+        return self::LEVEL_TABLE;
+    }
+
+    public function percentageExperience()
+    {
+       $userExperience = $this->user->getExperience();
+       $neededExperience = self::LEVEL_TABLE[$this->user->getLevel()][1];
+
+        return  $userExperience * 100 / $neededExperience;
+    }
 
     // Check if user have the minimum level to do quest
     public function isAvailable(Quest $quest)
