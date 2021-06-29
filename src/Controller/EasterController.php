@@ -2,6 +2,9 @@
 
 namespace App\Controller;
 
+
+use App\Repository\EasterRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -14,10 +17,21 @@ class EasterController extends AbstractController
     /**
      * @Route("/", name="win")
      */
-    public function index(): Response
+    public function index(EntityManagerInterface $em, EasterRepository $easterRepository): Response
     {
-        return $this->render('easter/index.html.twig', [
-            'controller_name' => 'EasterController',
-        ]);
+        if ($this->getUser()) {
+            $hackathon = $easterRepository->findOneBy(['title' => 'hackathon']);
+            if ($this->getUser()->getLevel() < $hackathon->getLevel()) {
+                $this->getUser()->setLevel($hackathon->getLevel());
+                $this->getUser()->setExperience($hackathon->getExperience());
+                $hackathon->setUserNumber($hackathon->getUserNumber() - 1);
+                $em->flush();
+                return $this->render('easter/index.html.twig', [
+                    'controller_name' => 'EasterController',
+                ]);
+            }
+        }
+
+        return $this->redirectToRoute('home');
     }
 }
