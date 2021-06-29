@@ -9,11 +9,11 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 {% if not app.user %}
-                    <li class="nav-item">
+                    <li class="nav-item mt-2 mt-lg-0">
                         <a class="nav-link active py-2 text-primary" aria-current="page" href="{{ path('app_login') }}">Sign in</a>
                     </li>
                 {% else %}
-                    <li class="nav-item">
+                    <li class="nav-item mt-2 mt-lg-0">
                         <a class="nav-link active me-2 text-muted" aria-current="page" href="{{ path('help_index') }}">Help freelancers</a>
                     </li>
                     <div class="dropdown">
