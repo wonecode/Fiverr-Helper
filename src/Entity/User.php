@@ -74,7 +74,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @ORM\ManyToMany(targetEntity=Quest::class, inversedBy="users")
-     * @ORM\JoinTable(name="user_quest")
      */
     private $finishedQuest;
 
