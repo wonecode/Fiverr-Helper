@@ -1,20 +1,19 @@
-{% extends 'base.html.twig' %}
+{% extends 'layout.html.twig' %}
 
-{% block title %}Hello RankingController!{% endblock %}
+{% block title %}Freelancers Ranking
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/media/djboubou/DjBoubouSSD2/Wild/hackathon/hackathon-2/src/Controller/RankingController.php'|file_link(0) }}">src/Controller/RankingController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/media/djboubou/DjBoubouSSD2/Wild/hackathon/hackathon-2/templates/ranking/index.html.twig'|file_link(0) }}">templates/ranking/index.html.twig</a></code></li>
-    </ul>
-</div>
+    {% for user in users %}
+        <div>
+            <img src="{{user.image}}" alt="picture off {{user.username}}">
+            <h1>{{user.username}}</h1>
+            <p>{{ user.email }}</p>
+            <p>lvl:
+                {{ user.level }}</p>
+            <p>exp:
+                {{ user.experience }}</p>
+            <a href="#" class="btn btn-primary btn-sm">View my profile</a>
+        </div>
+    {% endfor %}
 {% endblock %}
