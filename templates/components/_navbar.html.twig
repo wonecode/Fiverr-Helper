@@ -13,6 +13,9 @@
                         <a class="nav-link active py-2 text-primary" aria-current="page" href="{{ path('app_login') }}">Sign in</a>
                     </li>
                 {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link active me-2 text-dark" aria-current="page" href="{{ path('help_index') }}">Help freelancers</a>
+                    </li>
                     <div class="dropdown">
                         <a class="nav-link dropdown-toggle text-dark" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                             Hello
