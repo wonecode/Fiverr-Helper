@@ -35,11 +35,16 @@ class HelpController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $helps = $helpRepository->findBy([
-                'active' => $filterCategory->getActive(),
-                'category' => $filterCategory->getCategory()
-            ]);
-
+            if ($filterCategory->getCategory()) {
+                $helps = $helpRepository->findBy([
+                    'active' => $filterCategory->getActive(),
+                    'category' => $filterCategory->getCategory()
+                ]);
+            } else {
+                $helps = $helpRepository->findBy([
+                    'active' => $filterCategory->getActive()
+                ]);
+            }
         }
 
         return $this->render(

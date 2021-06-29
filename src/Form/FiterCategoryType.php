@@ -18,7 +18,10 @@ class FilterCategoryType extends AbstractType
         $builder
             ->add('category', EntityType::class, [
                 'class' => Category::class,
-                'choice_label' => 'name'
+                'choice_label' => 'name',
+                'placeholder' => 'All categories',
+                'empty_data' => null,
+                'required' => false
             ])
             ->add('active', CheckboxType::class, [
                 'required' => false

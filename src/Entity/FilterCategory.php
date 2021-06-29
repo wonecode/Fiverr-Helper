@@ -4,7 +4,7 @@ namespace App\Entity;
 
 class FilterCategory
 {
-    private ?Category $category;
+    private ?Category $category = null;
     private bool $active = true;
     private ?string $query;
 
