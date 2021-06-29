@@ -16,8 +16,16 @@ class HelpType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('subject', TextType::class)
-            ->add('description', TextareaType::class)
+            ->add('subject', TextType::class, [
+                'attr' => [
+                    'placeholder' => 'Need help with Symfony'
+                ]
+            ])
+            ->add('description', TextareaType::class, [
+                'attr' => [
+                    'placeholder' => 'Since i started working with Symfony i don\'t...'
+                ]
+            ])
             ->add('category', EntityType::class, [
                 'class' => Category::class,
                 'choice_label' => 'name'
