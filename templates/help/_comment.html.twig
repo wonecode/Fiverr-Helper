@@ -2,7 +2,7 @@
     <div class="d-flex flex-row profile-card align-items-center mb-3 w-100">
         <div class="d-flex flex-row align-items-end justify-content-between w-100">
             <div class="d-flex flex-row">
-                <img src="{{ comment.user.image }}" alt="picture of {{ comment.user.username }}" class="me-3">
+                <img src="{{ comment.user.image ?? "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png" }}" alt="picture of {{ comment.user.username }}" class="me-3">
                 <div>
                     <h3 class="h4 mb-0 text-dark text-wrap">{{ comment.user.username }}</h3>
                     <p class="mb-0 badge bg-primary">
@@ -16,9 +16,11 @@
                     {% include "comment/_delete_form.html.twig" %}
                 {% endif %}
                 {% if app.user is defined and app.user.email == help.applicant.email or is_granted('ROLE_ADMIN') %}
-                    <a title="Solved your problem" class="text-white btn btn-primary ms-2 btn-sm" href="{{ path('help_close', {help: help.id}) }}">
-                        <i class="fas fa-check"></i>
-                    </a>
+                    {% if help.active == true %}
+                        <a title="Solved your problem" class="text-white btn btn-primary ms-2 btn-sm" href="{{ path('help_close', {help: help.id}) }}">
+                            <i class="fas fa-check"></i>
+                        </a>
+                    {% endif %}
                 {% endif %}
             </div>
         </div>
