@@ -13,15 +13,17 @@ class HelpFixtures extends Fixture implements DependentFixtureInterface
 {
     private const SUBJECTS = [
         [
+            'category'=> 'PHP',
             'subject' => 'Need your help for php code',
             'description' => 'I need your help because my site turn in a loop infinite.'
         ],
         [
+            'category'=> 'Design',
             'subject' => 'Need your help for design',
             'description' => 'Please my design is not beautiful. I need your opinion.'
-
         ],
         [
+            'category'=> 'CSS',
             'subject' => 'Need your help for css code',
             'description' => 'I have a problem with a css animation. Can you help me please.'
         ]
@@ -37,6 +39,7 @@ class HelpFixtures extends Fixture implements DependentFixtureInterface
             $help->setActive(true);
             $help->setCreatedAt(new DateTimeImmutable());
             $help->setApplicant($this->getReference('user_' . $i));
+            $help->setCategory($this->getReference('category_' . $askHelp['category']));
             $manager->persist($help);
         }
 
@@ -46,7 +49,8 @@ class HelpFixtures extends Fixture implements DependentFixtureInterface
     public function getDependencies()
     {
         return [
-            UserFixtures::class
+            UserFixtures::class,
+            CategoryFixtures::class
         ];
     }
 }
