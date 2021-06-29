@@ -6,7 +6,9 @@ use App\Entity\Help;
 use App\Form\HelpType;
 use DateTimeImmutable;
 use App\Entity\Comment;
+use App\Entity\FilterCategory;
 use App\Form\CommentType;
+use App\Form\FilterCategoryType;
 use App\Repository\HelpRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -22,15 +24,34 @@ class HelpController extends AbstractController
     /**
      * @Route("/", name="index")
      */
-    public function index(HelpRepository $helpRepository): Response
+    public function index(HelpRepository $helpRepository, Request $request): Response
     {
         $helps = $helpRepository->findBy([
             'active' => true
         ]);
+
+        $filterCategory = new FilterCategory();
+        $form = $this->createForm(FilterCategoryType::class, $filterCategory);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            if ($filterCategory->getCategory()) {
+                $helps = $helpRepository->findBy([
+                    'active' => $filterCategory->getActive(),
+                    'category' => $filterCategory->getCategory()
+                ]);
+            } else {
+                $helps = $helpRepository->findBy([
+                    'active' => $filterCategory->getActive()
+                ]);
+            }
+        }
+
         return $this->render(
             'help/index.html.twig',
             [
-                'helps' => $helps
+                'helps' => $helps,
+                'filter' => $form->createView()
             ]
         );
     }
