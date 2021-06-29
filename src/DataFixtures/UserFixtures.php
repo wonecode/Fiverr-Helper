@@ -9,9 +9,15 @@ use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class UserFixtures extends Fixture
-{   
+{
     private UserGeneratorApi $userGenerator;
     private UserPasswordHasherInterface $passwordHasher;
+
+    public const USERS_NUMBER = 20;
+    private const LEVEL = [
+        'user' => 0,
+        'admin' => 100
+    ];
 
     public function __construct(UserGeneratorApi $userGenerator, UserPasswordHasherInterface $passwordHasher)
     {
@@ -21,6 +27,8 @@ class UserFixtures extends Fixture
 
     public function load(ObjectManager $manager)
     {
+        $fakeUsers = $this->userGenerator->getManyUser(self::USERS_NUMBER);
+
         $user = new User();
         $user->setEmail('lochlainn@fiverr.com');
         $user->setUsername('lochlainn');
@@ -58,16 +66,15 @@ class UserFixtures extends Fixture
         $user->setImage("https://media-exp1.licdn.com/dms/image/D4E35AQG1sIo5SrFhbQ/profile-framedphoto-shrink_200_200/0/1622115993708?e=1625018400&v=beta&t=gN1mbxMfNpCRMbhOjb8crBfr0mYu100-6Jhovka8h_g");
         $manager->persist($user);
 
-        $fakeUsers = $this->userGenerator->getManyUser(20);
-
-        foreach ($fakeUsers['results'] as $fakeUser){
+        foreach ($fakeUsers['results'] as $key => $fakeUser){
             $user = new User();
             $user->setEmail($fakeUser['email']);
             $user->setUsername($fakeUser['login']['username']);
             $user->setPassword($this->passwordHasher->hashPassword($user, '12345'));
-            $user->setLevel(0);
+            $user->setLevel(self::LEVEL['user']);
             $user->setImage($fakeUser['picture']['large']);
             $manager->persist($user);
+            $this->addReference('user_' . $key, $user);
         }
 
         $user = new User();
@@ -75,14 +82,14 @@ class UserFixtures extends Fixture
         $user->setUsername('admin');
         $user->setPassword($this->passwordHasher->hashPassword($user, 'admin'));
         $user->setRoles(['ROLE_ADMIN']);
-        $user->setLevel(100);
+        $user->setLevel(self::LEVEL['admin']);
         $manager->persist($user);
 
         $user = new User();
         $user->setEmail('user@fiverr.com');
         $user->setUsername('user');
         $user->setPassword($this->passwordHasher->hashPassword($user, '12345'));
-        $user->setLevel(0);
+        $user->setLevel(self::LEVEL['user']);
         $manager->persist($user);
 
         $manager->flush();

@@ -1,0 +1,10 @@
+{% for comment in help.comments %}
+    <img src="{{ comment.user.image }}" alt="picture of {{ comment.user.username }}">
+    <h4>{{ comment.user.username }}</h4>
+    {{ comment.comment }}
+    {% if app.user is defined and app.user.email == help.applicant.email or is_granted('ROLE_ADMIN') %}
+        <a class="btn btn-primary btn-sm" href="{{ path('help_close', {help: help.id}) }}">Solved my problem</a>
+    {% endif %}
+{% else %}
+    <p>No comments</p>
+{% endfor %}

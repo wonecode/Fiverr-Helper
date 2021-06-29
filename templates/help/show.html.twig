@@ -1,0 +1,30 @@
+{% extends 'layout.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('help') }}
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('comment') }}
+{% endblock %}
+
+{% block body %}
+    <img src="{{ help.applicant.image }}" alt="picture of {{ help.applicant.username }}">
+    <h1>{{ help.subject }}</h1>
+    <p>Description:
+        {{ help.description }}</p>
+
+    <div class="">
+        <h2>Comments:</h2>
+        <div class="comments">
+            <div class="new-comment mb-3">
+                {% include "comment/new.html.twig" %}
+            </div>
+            <div class="comments-show">
+                {% include "help/_comment.html.twig" %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
