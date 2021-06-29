@@ -15,3 +15,13 @@ const bootstrap = require('bootstrap');
 
 // loads AOS library
 AOS.init();
+
+const filterCategory = document.querySelector('.category');
+const filterForm = document.getElementById('filter-form');
+const filterActive = document.querySelector('.chk-active');
+filterCategory.addEventListener('change', () => {
+    filterForm.submit();
+})
+filterActive.addEventListener('change', () => {
+    filterForm.submit();
+})
