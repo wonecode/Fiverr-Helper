@@ -42,6 +42,19 @@
             filter: brightness(105%);
         }
     }
+
+    .filter {
+        font-family: $font-p;
+
+        .category {
+            background-color: white;
+            border: none;
+
+            option {
+                padding: 10px;
+            }
+        }
+    }
 }
 
 .help-show {

@@ -9,13 +9,14 @@
 
     h1 {
         font-size: 3.6em;
-        font-family: $font-p;
+        font-family: $title;
         font-weight: bold;
         text-shadow: 3px 3px 0px rgba(68, 68, 68, 0.55);
         letter-spacing: -1px;
 
         @media screen and (max-width: 740px) {
             font-size: 1.6em;
+            margin-top: 40px !important;
         }
 
         span {
@@ -50,7 +51,7 @@
     font-family: $font-p;
          
     h2 {
-        font-family: $font-p;
+        font-family: $title;
         font-weight: 700;
         color: $dark;
 
@@ -84,6 +85,7 @@
             padding: 0;
             font-weight: bold;
             font-size: 20px;
+            font-family: $title;
         }
 
         &:hover {

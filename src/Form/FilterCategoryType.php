@@ -21,10 +21,12 @@ class FilterCategoryType extends AbstractType
                 'choice_label' => 'name',
                 'placeholder' => 'All categories',
                 'empty_data' => null,
-                'required' => false
+                'required' => false,
+                'label' => 'Filter by category'
             ])
             ->add('active', CheckboxType::class, [
-                'required' => false
+                'required' => false,
+                'label' => 'Unsolved'
             ])
         ;
     }

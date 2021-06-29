@@ -15,11 +15,21 @@
     <main class="container p-md-5 p-4 help-show">
         <header data-aos="fade-right" class="pt-md-5 pb-3 pt-4">
             <h1 class="h1 text-dark fw-bold mt-5">{{ help.subject }}</h1>
-            <h2 class="h3 fw-light">Asked
-                {{ help.createdAt|format_datetime(locale='en') }}</h2>
+            <h2 class="h3 fw-light vertical-middle">
+                <p class="mb-0 me-1 badge bg-dark text-white">
+                    {% if help.active == true %}
+                        Unsolved
+                    {% else %}
+                        Solved
+                    {% endif %}
+                </p>
+                Asked
+                {{ help.createdAt|format_datetime(locale='en') }}
+            </h2>
         </header>
         <div data-aos="fade-right" class="d-flex flex-row profile-card align-items-center p-3 mb-3">
-            <img src="{{ help.applicant.image }}" alt="picture of {{ help.applicant.username }}" class="me-3">
+            <img src="{{ help.applicant.image ?? "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png" }}" alt="picture of
+            {{ help.applicant.username }}" class="me-3">
             <div>
                 <h3 class="h4 mb-0 text-wrap">{{ help.applicant.username }}</h3>
                 <p class="mb-0 badge bg-primary">
