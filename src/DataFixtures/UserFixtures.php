@@ -36,7 +36,7 @@ class UserFixtures extends Fixture
         $user->setRoles(['ROLE_USER']);
         $user->setLevel(100);
         $user->setExperience(3640);
-        $user->setImage("https://ibb.co/Tb6VFS3");
+        $user->setImage("https://i.ibb.co/z7py0Yv/1622720197208-e-1625140800-v-beta-t-BYXXAj-CPT1-IAh-Fx-FNV86la-Jwaqt-BBFSA2-Ge4-Y5y-JF9-I.jpg");
         $manager->persist($user);
 
 
@@ -47,7 +47,7 @@ class UserFixtures extends Fixture
         $user->setRoles(['ROLE_USER']);
         $user->setLevel(100);
         $user->setExperience(3640);
-        $user->setImage("https://ibb.co/t4JNWb5");
+        $user->setImage("https://i.ibb.co/37C8L0H/1621346390927-e-1625140800-v-beta-t-6qpif-Z4n-Pg-K6a-P-Mz7b-GA2-Rkk-Ndshesg-REI-Ql-Ztm-Cs.jpg");
         $manager->persist($user);
 
         $user = new User();
@@ -57,7 +57,7 @@ class UserFixtures extends Fixture
         $user->setRoles(['ROLE_USER']);
         $user->setLevel(100);
         $user->setExperience(3640);
-        $user->setImage("https://ibb.co/ys3WMGg");
+        $user->setImage("https://i.ibb.co/pXmJsG4/1622118256076-e-1625140800-v-beta-t-ii-LY-m-PEL8-RPm-NGb-LTs1-2oy04-Leoa3-VAZ-HUHU-Sl-U.jpg");
         $manager->persist($user);
 
         $user = new User();
@@ -67,7 +67,7 @@ class UserFixtures extends Fixture
         $user->setRoles(['ROLE_USER']);
         $user->setLevel(100);
         $user->setExperience(3640);
-        $user->setImage("https://ibb.co/wL0cjGY");
+        $user->setImage("https://i.ibb.co/PYmD0Xt/1622115993708-e-1625140800-v-beta-t-1y-ADt-GBwo-YB-LZsc-024-NAekdn-JIQSs-Gl-Fc-E00c-IXAA.jpg");
         $manager->persist($user);
 
         foreach ($fakeUsers['results'] as $key => $fakeUser){
