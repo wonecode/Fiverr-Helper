@@ -35,6 +35,9 @@
                         </div>
                         <a href="#" class="btn btn-primary text-white fw-bold btn-sm m-0">View profile</a>
                     </div>
+                    <a href="{{ path('profile', {id: user.id}) }}" class="btn btn-primary text-white fw-bold btn-sm m-0">View profile</a>
+                </div>
+                <hr>
                     <hr>
                 {% endif %}
             {% endfor %}
