@@ -23,7 +23,7 @@
                         </a>
                         <ul class="dropdown-menu shadow-lg" aria-labelledby="dropdownMenuLink">
                             <li>
-                                <a class="dropdown-item text-wrap text-dark py-2" href="#">
+                                <a class="dropdown-item text-wrap text-dark py-2" href="{{ path('profile') }}">
                                     <i class="fas fa-user me-2"></i>My profile</a>
                             </li>
                             {% if is_granted('ROLE_ADMIN') %}
