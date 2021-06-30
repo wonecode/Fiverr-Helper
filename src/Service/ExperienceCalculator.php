@@ -425,12 +425,12 @@ class ExperienceCalculator
         return self::LEVEL_TABLE;
     }
 
-    public function percentageExperience()
+    public function percentageExperience(User $user)
     {
         if ($this->user->getLevel() < 100) {
-            $actualLevelExperience = self::LEVEL_TABLE[$this->user->getLevel() - 1][1];
-            $neededExperience = self::LEVEL_TABLE[$this->user->getLevel()][1];
-            $userExperience = $this->user->getExperience();
+            $actualLevelExperience = self::LEVEL_TABLE[$user->getLevel() - 1][1];
+            $neededExperience = self::LEVEL_TABLE[$user->getLevel()][1];
+            $userExperience = $user->getExperience();
 
             $goalExperience = $neededExperience - $actualLevelExperience;
             $experienceUserCalc = $userExperience - $actualLevelExperience;
@@ -441,10 +441,10 @@ class ExperienceCalculator
     }
 
     // Check if user have the minimum level to do quest
-    public function isAvailable(Quest $quest)
+    public function isAvailable(Quest $quest, User $user)
     {
-        if ($this->user->getLevel() >= $quest->getMinimumLevel()) {
-            if ($this->user->getFinishedQuest()) {
+        if ($user->getLevel() >= $quest->getMinimumLevel()) {
+            if ($user->getFinishedQuest()) {
             }
             return true;
         }
@@ -452,9 +452,9 @@ class ExperienceCalculator
     }
 
     // Simply add experience from quest to user
-    public function addExperience(Quest $quest, EntityManagerInterface $em)
+    public function addExperience(Quest $quest, EntityManagerInterface $em, User $user)
     {
-        $this->user->setExperience($this->user->getExperience() + $quest->getExperience());
+        $user->setExperience($user->getExperience() + $quest->getExperience());
         $em->flush();
     }
 
@@ -479,9 +479,9 @@ class ExperienceCalculator
     }
 
     // Save quest and user in user_quest table
-    public function isAlreadyDo(Quest $quest, EntityManagerInterface $em)
+    public function isAlreadyDo(Quest $quest, EntityManagerInterface $em, User $user)
     {
-        $this->user->addFinishedQuest($quest);
+        $user->addFinishedQuest($quest);
         $em->flush();
     }
 }

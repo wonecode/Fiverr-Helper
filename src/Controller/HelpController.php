@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Category;
 use App\Entity\Help;
 use App\Form\HelpType;
 use DateTimeImmutable;

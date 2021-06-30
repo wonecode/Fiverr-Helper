@@ -45,6 +45,11 @@ class Quest
      */
     private $users;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $goal;
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
@@ -126,6 +131,18 @@ class Quest
         if ($this->users->removeElement($user)) {
             $user->removeFinishedQuest($this);
         }
+
+        return $this;
+    }
+
+    public function getGoal(): ?int
+    {
+        return $this->goal;
+    }
+
+    public function setGoal(int $goal): self
+    {
+        $this->goal = $goal;
 
         return $this;
     }

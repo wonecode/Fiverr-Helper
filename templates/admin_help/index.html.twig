@@ -1,0 +1,116 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Requests management
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('adminUser') }}
+{% endblock %}
+
+{% block body %}
+    <h1>Resquest Help index</h1>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-2 d-flex justify-content-start">
+                <a href="{{ path('admin') }}" class="far fa-arrow-alt-circle-left back-button">
+                    <span>Back to index</span>
+                </a>
+            </div>
+            <div class="col-sm-8"></div>
+            <div class="col-sm-2 d-flex justify-content-end">
+                <input type="text" id="myInput" onkeyup="searchForm()" placeholder="Search for names.."></div>
+        </div>
+    </div>
+
+    <table class="table table-hover table-striped" id="myTable">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Image</th>
+                <th>User</th>
+                <th>Subject</th>
+                <th>Description</th>
+                <th>Active</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for help in helps %}
+                <tr class="align-middle">
+                    <td>{{ help.id }}</td>
+                    <td><img src="{{ help.applicant.image }}" class="rounded-circle"></td>
+                    <td>{{ help.applicant.username }}</td>
+                    <td>{{ help.subject }}</td>
+                    <td>{{ help.description }}</td>
+                    <td>{{ help.active ? 'Yes' : 'No' }}</td>
+                    <td>
+                        <button type="button" class="btn far fa-eye link-logo view" data-bs-toggle="modal" data-bs-target="#exampleModal{{ help.id }}"></button>
+                        <a href="{{ path('admin_help_edit', {'id': help.id}) }}" class="far fa-edit link-logo"></a>
+                    </td>
+                </tr>
+
+<div class="modal fade" id="exampleModal{{ help.id }}" tabindex="-1" aria-labelledby="exampleModalLabel" data-bs-backdrop="static">
+        <div class="modal-dialog">
+
+            <div class="card text-center">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">{{ help.subject }}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                    <img src="{{ help.applicant.image }}"class="rounded-circle">
+                    <p class="card-text">{{ help.applicant.username }}</p>
+                                    <p 
+                        <p>{{ help.description }}</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <a href="{{ path('admin_help_edit', {'id': help.id}) }}" class="btn btn-primary">edit</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            {% else %}
+                <tr>
+                    <td colspan="7">no records found</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <script>
+        function searchForm() { // Declare variables
+            var input,
+                filter,
+                table,
+                tr,
+                td,
+                i,
+                txtValue;
+            // Id of search input
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            // Id of table
+            table = document.getElementById("myTable");
+            // Tag of research case
+            tr = table.getElementsByTagName("tr");
+
+            // Loop through all table rows, and hide those who don't match the search query
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[2]; // change Index to column you want
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+{% endblock %}

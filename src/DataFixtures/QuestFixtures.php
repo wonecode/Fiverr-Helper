@@ -25,6 +25,7 @@ class QuestFixtures extends Fixture
         $quest->setDescription('For this first quest you just have to help a freelance !');
         $quest->setExperience(10);
         $quest->setMinimumLevel(1);
+        $quest->setGoal(1);
         $manager->persist($quest);
         
         $quest = new Quest();
@@ -32,6 +33,7 @@ class QuestFixtures extends Fixture
         $quest->setDescription('For this one you just have to help a web developer !');
         $quest->setExperience(25);
         $quest->setMinimumLevel(1);
+        $quest->setGoal(1);
         $manager->persist($quest);
 
         $quest = new Quest();
@@ -39,6 +41,7 @@ class QuestFixtures extends Fixture
         $quest->setDescription('For this one you just have to help two persons !');
         $quest->setExperience(25);
         $quest->setMinimumLevel(2);
+        $quest->setGoal(2);
         $manager->persist($quest);
 
         $quest = new Quest();
@@ -46,6 +49,7 @@ class QuestFixtures extends Fixture
         $quest->setDescription('For this one you just have to help two designer !');
         $quest->setExperience(25);
         $quest->setMinimumLevel(2);
+        $quest->setGoal(2);
         $manager->persist($quest);
 
         for ($i = 0; $i < self::MAX_FIXTURES; $i++) {
@@ -54,6 +58,7 @@ class QuestFixtures extends Fixture
             $quest->setDescription($this->faker->paragraph());
             $quest->setExperience($this->faker->numberBetween(1, 100));
             $quest->setMinimumLevel($this->faker->numberBetween(1, 100));
+            $quest->setGoal($this->faker->numberBetween(1, 20));
 
             $manager->persist($quest);
         }
