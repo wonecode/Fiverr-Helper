@@ -31,7 +31,7 @@ class UserFixtures extends Fixture
 
         $user = new User();
         $user->setEmail('lochlainn@fiverr.com');
-        $user->setUsername('lochlainn');
+        $user->setUsername('Lochlainn Gadault');
         $user->setPassword($this->passwordHasher->hashPassword($user, 'admin'));
         $user->setRoles(['ROLE_USER']);
         $user->setLevel(100);
@@ -42,7 +42,7 @@ class UserFixtures extends Fixture
 
         $user = new User();
         $user->setEmail('mael@fiverr.com');
-        $user->setUsername('mael');
+        $user->setUsername('Mael Chariault');
         $user->setPassword($this->passwordHasher->hashPassword($user, 'admin'));
         $user->setRoles(['ROLE_USER']);
         $user->setLevel(100);
@@ -52,7 +52,7 @@ class UserFixtures extends Fixture
 
         $user = new User();
         $user->setEmail('loic@fiverr.com');
-        $user->setUsername('loic');
+        $user->setUsername('Loic Pinguet');
         $user->setPassword($this->passwordHasher->hashPassword($user, 'admin'));
         $user->setRoles(['ROLE_USER']);
         $user->setLevel(100);
@@ -62,7 +62,7 @@ class UserFixtures extends Fixture
 
         $user = new User();
         $user->setEmail('tennessee@fiverr.com');
-        $user->setUsername('tennessee');
+        $user->setUsername('Tennessee Houry');
         $user->setPassword($this->passwordHasher->hashPassword($user, 'admin'));
         $user->setRoles(['ROLE_USER']);
         $user->setLevel(100);
