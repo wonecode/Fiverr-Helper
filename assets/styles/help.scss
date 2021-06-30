@@ -19,6 +19,7 @@
         font-family: $font-p;
         border-radius: 7px;
         color: $dark;
+        word-break:break-all;
 
         h3 {
             font-size: 18px;
@@ -41,6 +42,10 @@
         &:hover {
             filter: brightness(105%);
         }
+    }
+
+    .text-to-break {
+        word-break:break-all;
     }
 
     .filter {
@@ -92,6 +97,10 @@
         @media screen and (max-width: 740px) {
             width: 100%;
         }
+    }
+
+    .text-show {
+        word-break:break-all;
     }
 
     .delete-comment {
