@@ -36,7 +36,7 @@ class UserFixtures extends Fixture
         $user->setRoles(['ROLE_USER']);
         $user->setLevel(100);
         $user->setExperience(3640);
-        $user->setImage("https://media-exp1.licdn.com/dms/image/D4D35AQFVyelP05kGFA/profile-framedphoto-shrink_200_200/0/1622720197208?e=1625018400&v=beta&t=k8UG0fHD170bDsBwBIk7cw3Ca8nzEgiSSvU6pAhXce4");
+        $user->setImage("https://ibb.co/Tb6VFS3");
         $manager->persist($user);
 
 
@@ -47,7 +47,7 @@ class UserFixtures extends Fixture
         $user->setRoles(['ROLE_USER']);
         $user->setLevel(100);
         $user->setExperience(3640);
-        $user->setImage("https://media-exp1.licdn.com/dms/image/D5635AQHWER4YttvKdg/profile-framedphoto-shrink_200_200/0/1621346390927?e=1625018400&v=beta&t=7tz7uYLPBxRgpx7NWWrBp3LwU0h9rWB8gIbPCCnQdK8");
+        $user->setImage("https://ibb.co/t4JNWb5");
         $manager->persist($user);
 
         $user = new User();
@@ -57,7 +57,7 @@ class UserFixtures extends Fixture
         $user->setRoles(['ROLE_USER']);
         $user->setLevel(100);
         $user->setExperience(3640);
-        $user->setImage("https://media-exp1.licdn.com/dms/image/D5635AQEVv0U3IL3Mug/profile-framedphoto-shrink_200_200/0/1622118256076?e=1625018400&v=beta&t=K9-xzZw0DBBy7YDThLfxGJuSttqOWSDR5vhozMRgQ0U");
+        $user->setImage("https://ibb.co/ys3WMGg");
         $manager->persist($user);
 
         $user = new User();
@@ -67,7 +67,7 @@ class UserFixtures extends Fixture
         $user->setRoles(['ROLE_USER']);
         $user->setLevel(100);
         $user->setExperience(3640);
-        $user->setImage("https://media-exp1.licdn.com/dms/image/D4E35AQG1sIo5SrFhbQ/profile-framedphoto-shrink_200_200/0/1622115993708?e=1625108400&v=beta&t=562_4yYz7yBi9c5_Qeov_TYkFHFBNjp91HriOPYXOQM");
+        $user->setImage("https://ibb.co/wL0cjGY");
         $manager->persist($user);
 
         foreach ($fakeUsers['results'] as $key => $fakeUser){
