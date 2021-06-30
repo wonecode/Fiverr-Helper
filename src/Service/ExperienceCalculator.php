@@ -427,11 +427,16 @@ class ExperienceCalculator
 
     public function percentageExperience()
     {
-        if($this->user->getLevel() < 100){
-       $userExperience = $this->user->getExperience();
-       $neededExperience = self::LEVEL_TABLE[$this->user->getLevel()][1];
+        if ($this->user->getLevel() < 100) {
+            $actualLevelExperience = self::LEVEL_TABLE[$this->user->getLevel() - 1][1];
+            $neededExperience = self::LEVEL_TABLE[$this->user->getLevel()][1];
+            $userExperience = $this->user->getExperience();
 
-        return  $userExperience * 100 / $neededExperience;}
+            $goalExperience = $neededExperience - $actualLevelExperience;
+            $experienceUserCalc = $userExperience - $actualLevelExperience;
+
+            return (($experienceUserCalc * 100) / $goalExperience);
+        }
         return 100;
     }
 
@@ -476,7 +481,7 @@ class ExperienceCalculator
     // Save quest and user in user_quest table
     public function isAlreadyDo(Quest $quest, EntityManagerInterface $em)
     {
-       $this->user->addFinishedQuest($quest);
-       $em->flush();
+        $this->user->addFinishedQuest($quest);
+        $em->flush();
     }
 }
