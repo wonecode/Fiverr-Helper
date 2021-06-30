@@ -8,12 +8,12 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/ranking", name="ranking_")
+ * @Route("/leaderboard", name="ranking_")
  */
 class RankingController extends AbstractController
 {
     /**
-     * @Route("/index", name="index")
+     * @Route("/", name="index")
      */
     public function index(UserRepository $userRepository): Response
     {

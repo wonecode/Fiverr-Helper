@@ -1,0 +1,63 @@
+@import 'variables';
+
+.leaderboard {
+    font-family: $font-p;
+
+    h1 {
+        font-family: $title;
+
+        i {
+            font-size: 10px;
+        }
+    }
+
+    h2 {
+        font-size: 25px;
+    }
+
+    .leader {
+        .user-row {
+            img {
+                height: 40px;
+                width: 40px;
+                object-fit: cover;
+                border-radius: 50%;
+            }
+
+            h3 {
+                font-family: $title;
+                color: $primary;
+                font-size: 17px;
+            }
+
+            .ranker {
+                width: 30px;
+                font-family: $title;
+            }
+
+            .left {
+                @media screen and (max-width: 740px) {
+                    padding-bottom: 16px;
+                }
+            }
+
+            .btn {
+                @media screen and (max-width: 740px) {
+                    width: 100%;
+                }
+            }
+        }
+
+        .bg-1 {
+            background-color: #f1c40f !important;
+        }
+
+        .bg-2 {
+            background-color: #95a5a6 !important;
+        }
+
+        .bg-3 {
+            background-color: #b95a00 !important;
+        }
+    }
+}

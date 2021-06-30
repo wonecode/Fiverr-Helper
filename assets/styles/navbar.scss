@@ -13,18 +13,19 @@ nav {
         font-size: 15px;
     }
 
+    .badge {
+        margin-bottom: 2px !important;
+    }
+
     .dropdown {
         ul {
             border: none;
+            width: 100%;
 
             a {
                 font-size: 14px;
                 font-weight: 300;
             }
-        }
-
-        .dropdown-menu {
-            left: -25%;
         }
 
         .nav-name {

@@ -1,19 +1,40 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %}Freelancers Ranking
+{% block title %}
+    {{ parent() }}
+    - Freelancers Ranking
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    {{ encore_entry_link_tags('leaderboard') }}
 {% endblock %}
 
 {% block body %}
-    {% for user in users %}
-        <div>
-            <img src="{{user.image}}" alt="picture off {{user.username}}">
-            <h1>{{user.username}}</h1>
-            <p>{{ user.email }}</p>
-            <p>lvl:
-                {{ user.level }}</p>
-            <p>exp:
-                {{ user.experience }}</p>
-            <a href="#" class="btn btn-primary btn-sm">View my profile</a>
+    <main class="container p-md-5 p-4 leaderboard">
+        <header class="pt-md-5 pt-4 pb-3">
+            <h1 class="h1 text-dark fw-bold mt-5">Freelancers leaderboard<i class="fas fa-circle text-primary"></i>
+            </h1>
+            <h2 class="h2 fw-light">Discover the ranking of freelancers</h2>
+        </header>
+
+        <div class="my-4 leader">
+            {% for user in users %}
+                <div class="d-flex flex-md-row flex-column user-row align-items-center justify-content-between mb-3">
+                    <div class="d-flex left flex-row align-items-center">
+                        <p class="m-0 me-2 ranker badge bg-dark bg-{{ loop.index }} py-2">{{ loop.index }}</p>
+                        <img class="me-2" src="{{user.image ?? "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png" }}" alt="picture off {{user.username}}">
+                        <h3 class="h3 m-0 me-2 text-dark">{{user.username}}</h3>
+                        <p class="m-0 me-1 badge bg-primary">Level
+                            {{ user.level }}</p>
+                        <p class="m-0 me-2 badge bg-info">{{ user.experience }} XP
+                        </p>
+                    </div>
+                    <a href="#" class="btn btn-primary text-white fw-bold btn-sm m-0">View profile</a>
+                </div>
+                <hr>
+            {% endfor %}
         </div>
-    {% endfor %}
+    </main>
 {% endblock %}
