@@ -31,8 +31,7 @@ class ProfileController extends AbstractController
             'quests' => $questRepository->findby(
                 [
                     'minimumLevel' => $level,
-                ]
-            ),
+                ]),
             'experience' => $experience->percentageExperience(),
             'badges' => $user->getBadge(),
         ]);

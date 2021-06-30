@@ -67,7 +67,7 @@ class UserFixtures extends Fixture
         $user->setRoles(['ROLE_USER']);
         $user->setLevel(100);
         $user->setExperience(3640);
-        $user->setImage("https://media-exp1.licdn.com/dms/image/D4E35AQG1sIo5SrFhbQ/profile-framedphoto-shrink_200_200/0/1622115993708?e=1625018400&v=beta&t=gN1mbxMfNpCRMbhOjb8crBfr0mYu100-6Jhovka8h_g");
+        $user->setImage("https://media-exp1.licdn.com/dms/image/D4E35AQG1sIo5SrFhbQ/profile-framedphoto-shrink_200_200/0/1622115993708?e=1625108400&v=beta&t=562_4yYz7yBi9c5_Qeov_TYkFHFBNjp91HriOPYXOQM");
         $manager->persist($user);
 
         foreach ($fakeUsers['results'] as $key => $fakeUser){
