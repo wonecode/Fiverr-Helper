@@ -45,6 +45,7 @@ Encore
     .addStyleEntry('adminQuest', './assets/styles/adminQuest.scss')
     .addStyleEntry('adminBadge', './assets/styles/adminBadge.scss')
     .addStyleEntry('login', './assets/styles/login.scss')
+    .addStyleEntry('leaderboard', './assets/styles/leaderboard.scss')
 
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')
