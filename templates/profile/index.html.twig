@@ -50,15 +50,17 @@
 			</div>
 			<div class="col-sm-8 mt-2">
 				<div class="quests">
-					<h2 class="fw-bold m-4">Quests<span>.</span>
+                 {% if app.user != user %}
+                 <h2 class="fw-bold m-4">Accomplished Quests<span>.</span>
 					</h2>
-					{% for quest in quests %}
+                    {% for quest in accomplished %}
 						<div class="card m-4">
 							<div class="card-header fw-bold">
 								{{ quest.name }}
 							</div>
 							<div class="card-body p-4">
 								<p class="card-text">{{ quest.description }}</p>
+                                <p class="card-text">Level <span class="fw-bold">{{ quest.minimumLevel }}</span></p>
 								<p class="card-text fw-bold">{{ quest.experience }}
 									<span class="fw-bold">xp</span>
 								</p>
@@ -66,6 +68,26 @@
 							</div>
 						</div>
 					{% endfor %}
+                    {% else %}
+					<h2 class="fw-bold m-4">Quests<span>.</span>
+					</h2>
+                   
+					{% for quest in quests %}
+						<div class="card m-4">
+							<div class="card-header fw-bold">
+								{{ quest.name }}
+							</div>
+							<div class="card-body p-4">
+								<p class="card-text">{{ quest.description }}</p>
+                                <p class="card-text">Level <span class="fw-bold">{{ quest.minimumLevel }}</span></p>
+								<p class="card-text fw-bold">{{ quest.experience }}
+									<span class="fw-bold">xp</span>
+								</p>
+								<a href="#" class="btn-profile btn btn-primary text-light">Help a freelancer</a>
+							</div>
+						</div>
+					{% endfor %}
+                    {% endif %}
 				</div>
 			</div>
 		</div>
