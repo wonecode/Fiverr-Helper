@@ -21,13 +21,20 @@ class ProfileController extends AbstractController
         if ($user !== $this->getUser()) {
             return new RedirectResponse('/');
         }
+
+        for ($i = 1; $i < $user->getLevel(); ++$i) {
+            $level[] = $i;
+        }
+       
         return $this->render('profile/index.html.twig', [
             'user' => $user,
-            'quests' => $questRepository->findAll(),
+            'quests' => $questRepository->findby(
+                [
+                    'minimumLevel' => $level,
+                ]
+            ),
             'experience' => $experience->percentageExperience(),
-            'badges' =>$user->getBadge(),
+            'badges' => $user->getBadge(),
         ]);
     }
-
-
 }
