@@ -1,4 +1,4 @@
-@import "variables.scss";
+@import 'variables.scss';
 
 .profile-head {
     background: no-repeat center/100%
@@ -8,6 +8,10 @@
     font-family: $font-p;
     display: flex;
     justify-content: center;
+
+    @media screen and (max-width: 812px) {
+        height: 45vh;
+    }
 }
 
 .badges img {
@@ -16,8 +20,14 @@
 }
 
 .profile-name {
-    font-family: $font-s;
+    font-family: $title;
+    font-size: 20px;
     color: #3fc988;
+}
+
+.bg-progress {
+    background-color: #08aeea;
+    background-image: linear-gradient(90deg, #08aeea 0%, #2af598 100%);
 }
 
 h1 {
@@ -26,6 +36,10 @@ h1 {
     font-weight: bold;
     text-shadow: 3px 3px 0px rgba(68, 68, 68, 0.55);
     letter-spacing: -1px;
+
+    @media screen and (max-width: 812px) {
+        padding-top: 60px;
+    }
 }
 
 .information {
@@ -39,7 +53,7 @@ h1 {
 }
 
 span {
-   color: $primary; 
+    color: $primary;
 }
 
 .profile-head span {
@@ -75,5 +89,4 @@ span {
     .profile-head {
         margin-top: -50px;
     }
-
 }
