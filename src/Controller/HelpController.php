@@ -12,6 +12,7 @@ use App\Entity\User;
 use App\Form\CommentType;
 use App\Form\FilterCategoryType;
 use App\Repository\HelpRepository;
+use App\Repository\InProgressQuestRepository;
 use App\Service\ExperienceCalculator;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -173,11 +174,25 @@ class HelpController extends AbstractController
     /**
      * @Route("/close/{help}/{user}", name="close")
      */
-    public function close(Help $help, EntityManagerInterface $em, User $user, ExperienceCalculator $experienceCalculator): Response
+    public function close(Help $help, EntityManagerInterface $em, User $user, ExperienceCalculator $experienceCalculator, InProgressQuestRepository $inProgressQuestRepository): Response
     {
         $user->setExperience($user->getExperience() + 25);
         $experienceCalculator->canLevelUp($user, $em);
+
         $help->setActive(false);
+
+        $inprogress = $inProgressQuestRepository->findOneBy([
+            'user' => $user,
+        ]);
+        if($inprogress){
+            $inprogress->setCount($inprogress->getCount()+1);
+            $quest = $inprogress->getQuest();
+            if($inprogress->getCount() === $quest->getGoal()){
+                $inprogress->setIsAccomplished(true);
+                $user->setExperience($user->getExperience() + $quest->getExperience());
+                $user->addFinishedQuest($quest);
+            }
+        }
         $em->flush();
 
         return $this->redirectToRoute('help_index');

@@ -39,6 +39,11 @@ class Badge
      */
     private $users;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $minimumLevel;
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
@@ -108,6 +113,18 @@ class Badge
         if ($this->users->removeElement($user)) {
             $user->removeBadge($this);
         }
+
+        return $this;
+    }
+
+    public function getMinimumLevel(): ?int
+    {
+        return $this->minimumLevel;
+    }
+
+    public function setMinimumLevel(int $minimumLevel): self
+    {
+        $this->minimumLevel = $minimumLevel;
 
         return $this;
     }
