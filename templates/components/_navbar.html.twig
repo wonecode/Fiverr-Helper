@@ -14,7 +14,7 @@
                     </li>
                 {% else %}
                     <li class="nav-item mt-2 mt-lg-0">
-                        <a class="nav-link active me-2 text-muted" aria-current="page" href="{{ path('help_index') }}">Help freelancers</a>
+                        <a class="nav-link active me-2 pb-0 text-muted mt-lg-0 mt-2" aria-current="page" href="{{ path('help_index') }}">Help freelancers</a>
                     </li>
                     <li class="nav-item mt-2 mt-lg-0">
                         <a class="nav-link active me-2 text-muted" aria-current="page" href="{{ path('ranking_index') }}">Leaderboard</a>
@@ -23,6 +23,7 @@
                         <a class="nav-link dropdown-toggle text-muted" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                             Hello
                             <span class="nav-name text-primary">{{ app.user.username|capitalize }}</span>
+                            <span class="badge bg-primary align-middle">Level {{ app.user.level }} | {{ app.user.experience }} XP</span>
                         </a>
                         <ul class="dropdown-menu shadow-lg" aria-labelledby="dropdownMenuLink">
                             <li>
