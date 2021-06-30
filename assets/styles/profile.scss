@@ -8,6 +8,10 @@
     font-family: $font-p;
     display: flex;
     justify-content: center;
+
+    @media screen and (max-width: 812px) {
+        height: 45vh;
+    }
 }
 
 .badges img {
@@ -32,6 +36,10 @@ h1 {
     font-weight: bold;
     text-shadow: 3px 3px 0px rgba(68, 68, 68, 0.55);
     letter-spacing: -1px;
+
+    @media screen and (max-width: 812px) {
+        padding-top: 60px;
+    }
 }
 
 .information {

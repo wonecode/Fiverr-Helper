@@ -1,6 +1,8 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %}Hello ProfilController!
+{% block title %}
+    {{ parent() }}
+    - My profile
 {% endblock %}
 
 {% block stylesheets %}
@@ -20,9 +22,9 @@
     </header>
 
     <div class="container">
-        <div class="contain row m-3">
-            <div class="col-sm-4 mt-5">
-                <div class="profile-card bg-white shadow my-5">
+        <div class="contain row m-lg-3 m-1">
+            <div class="col-sm-4 mt-lg-5 mt-0">
+                <div class="profile-card bg-white shadow my-lg-5 my-2">
                     <div class="information card-header p-5">
                         <img class="profile-picture rounded-circle" src="{{ user.image }}" alt="Grapefruit slice atop a pile of other slices">
                         <p class="profile-name fw-bold mt-3 mb-1">{{ user.username }}</p>
