@@ -2,25 +2,30 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
 use App\Repository\UserRepository;
 use App\Repository\QuestRepository;
 use App\Service\ExperienceCalculator;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ProfileController extends AbstractController
 {
     /**
-     * @Route("/profile", name="profile")
+     * @Route("/profile/{id}", name="profile")
      */
-    public function index(UserRepository $userRepository, QuestRepository $questRepository, ExperienceCalculator $experience): Response
+    public function index(User $user, QuestRepository $questRepository, ExperienceCalculator $experience): Response
     {
+        if ($user !== $this->getUser()) {
+            return new RedirectResponse('/');
+        }
         return $this->render('profile/index.html.twig', [
-            'user' => $userRepository->find(1),
+            'user' => $user,
             'quests' => $questRepository->findAll(),
             'experience' => $experience->percentageExperience(),
-            'badges'    => $this->getUser()->getBadge(),
+            'badges' =>$user->getBadge(),
         ]);
     }
 
