@@ -31,7 +31,7 @@
                         <p class="m-0 me-2 badge bg-info">{{ user.experience }} XP
                         </p>
                     </div>
-                    <a href="#" class="btn btn-primary text-white fw-bold btn-sm m-0">View profile</a>
+                    <a href="{{ path('profile', {id: user.id}) }}" class="btn btn-primary text-white fw-bold btn-sm m-0">View profile</a>
                 </div>
                 <hr>
             {% endfor %}
