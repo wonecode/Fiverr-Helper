@@ -20,25 +20,25 @@ class BadgeFixtures extends Fixture
         $manager->persist($badge);
         $badge->setName('Bronze');
         $badge->setStatus('Reach level 4');
-        $badge->setImage('build/images/badge.png');
+        $badge->setImage('build/images/badgevert.png');
 
         $badge = new badge();
         $manager->persist($badge);
         $badge->setName('Silver');
         $badge->setStatus('Reach level 6');
-        $badge->setImage('build/images/badge.png');
+        $badge->setImage('build/images/badgeargent.png');
 
         $badge = new badge();
         $manager->persist($badge);
         $badge->setName('Gold');
         $badge->setStatus('Reach level 8');
-        $badge->setImage('build/images/badge.png');
+        $badge->setImage('build/images/badgeor.png');
 
         $badge = new badge();
         $manager->persist($badge);
         $badge->setName('Platinum');
         $badge->setStatus('Reach level 10');
-        $badge->setImage('build/images/badge.png');
+        $badge->setImage('build/images/badgerouge.png');
 
         $manager->flush();
     }

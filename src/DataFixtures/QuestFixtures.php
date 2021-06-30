@@ -20,20 +20,11 @@ class QuestFixtures extends Fixture
 
     public function load(ObjectManager $manager)
     {
-        for ($i = 0; $i < self::MAX_FIXTURES; $i++) {
-            $quest = new Quest();
-            $quest->setName($this->faker->sentence());
-            $quest->setDescription($this->faker->paragraph());
-            $quest->setExperience($this->faker->numberBetween(0, 100));
-            $quest->setMinimumLevel($this->faker->randomDigit());
-
-            $manager->persist($quest);
-        }
         $quest = new Quest();
         $quest->setName('Welcome in your first quest');
         $quest->setDescription('For this first quest you just have to help a freelance !');
         $quest->setExperience(10);
-        $quest->setMinimumLevel(0);
+        $quest->setMinimumLevel(1);
         $manager->persist($quest);
         
         $quest = new Quest();
@@ -47,8 +38,26 @@ class QuestFixtures extends Fixture
         $quest->setName('Help two people');
         $quest->setDescription('For this one you just have to help two persons !');
         $quest->setExperience(25);
-        $quest->setMinimumLevel(1);
+        $quest->setMinimumLevel(2);
         $manager->persist($quest);
+
+        $quest = new Quest();
+        $quest->setName('Help two designer');
+        $quest->setDescription('For this one you just have to help two designer !');
+        $quest->setExperience(25);
+        $quest->setMinimumLevel(2);
+        $manager->persist($quest);
+
+        for ($i = 0; $i < self::MAX_FIXTURES; $i++) {
+            $quest = new Quest();
+            $quest->setName($this->faker->sentence());
+            $quest->setDescription($this->faker->paragraph());
+            $quest->setExperience($this->faker->numberBetween(1, 100));
+            $quest->setMinimumLevel($this->faker->numberBetween(1, 100));
+
+            $manager->persist($quest);
+        }
+       
 
         $manager->flush();
     }
