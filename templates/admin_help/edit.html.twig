@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Help
+{% endblock %}
+
+{% block body %}
+    <h1>Edit Help</h1>
+
+    {{ include('admin_help/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('admin_help/_delete_form.html.twig') }}
+    <a href="{{ path('admin_help_index') }}" class="btn btn-warning">back to list</a>
+{% endblock %}
