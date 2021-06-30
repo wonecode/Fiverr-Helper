@@ -28,7 +28,6 @@ class HelpController extends AbstractController
      */
     public function index(HelpRepository $helpRepository, Request $request): Response
     {
-        
         $helps = $helpRepository->findBy([
             'active' => true
         ]);
