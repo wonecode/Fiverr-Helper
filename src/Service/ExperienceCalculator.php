@@ -412,6 +412,10 @@ class ExperienceCalculator
         [
             100,
             3640
+        ],
+        [
+            101,
+            6640
         ]
     ];
 
@@ -427,7 +431,7 @@ class ExperienceCalculator
 
     public function percentageExperience(User $user)
     {
-        if ($this->user->getLevel() < 100) {
+        if ($user->getLevel() < self::LEVEL_TABLE[array_key_last(self::LEVEL_TABLE)][1]) {
             $actualLevelExperience = self::LEVEL_TABLE[$user->getLevel() - 1][1];
             $neededExperience = self::LEVEL_TABLE[$user->getLevel()][1];
             $userExperience = $user->getExperience();
