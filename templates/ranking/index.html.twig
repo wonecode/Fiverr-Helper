@@ -21,19 +21,22 @@
 
         <div data-aos="fade-right" class="my-4 leader">
             {% for user in users %}
-                <div class="d-flex flex-md-row flex-column user-row align-items-center justify-content-between mb-3">
-                    <div class="d-flex left flex-row align-items-center">
-                        <p class="m-0 me-2 ranker badge bg-dark bg-{{ loop.index }} py-2">{{ loop.index }}</p>
-                        <img class="me-2" src="{{user.image ?? "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png" }}" alt="picture off {{user.username}}">
-                        <h3 class="h3 m-0 me-2 text-dark">{{user.username}}</h3>
-                        <p class="m-0 me-1 badge bg-primary">Level
-                            {{ user.level }}</p>
-                        <p class="m-0 me-2 badge bg-info">{{ user.experience }} XP
-                        </p>
+                {% if user.username != 'admin' %}
+                    <div class="d-flex flex-md-row flex-column user-row align-items-center justify-content-between mb-3">
+                        <div class="d-flex left flex-row align-items-center">
+                            <p class="m-0 me-2 ranker badge bg-dark bg-{{ loop.index - 1}} py-2">{{ loop.index -1 }}</p>
+                            <img class="me-2" src="{{user.image ?? "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png" }}" alt="picture off {{user.username}}">
+                            <h3 class="h3 m-0 me-2 text-dark">{{user.username}}</h3>
+                            <p class="m-0 me-1 badge bg-primary">Level
+                                {{ user.level }}</p>
+                            <p class="m-0 me-2 badge bg-info">{{ user.experience }}
+                                XP
+                            </p>
+                        </div>
+                        <a href="#" class="btn btn-primary text-white fw-bold btn-sm m-0">View profile</a>
                     </div>
-                    <a href="#" class="btn btn-primary text-white fw-bold btn-sm m-0">View profile</a>
-                </div>
-                <hr>
+                    <hr>
+                {% endif %}
             {% endfor %}
         </div>
     </main>
