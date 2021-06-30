@@ -12,14 +12,14 @@
 {% endblock %}
 
 {% block body %}
-    <main class="container p-md-5 p-4 leaderboard">
+    <main data-aos="fade-right" class="container p-md-5 p-4 leaderboard">
         <header class="pt-md-5 pt-4 pb-3">
             <h1 class="h1 text-dark fw-bold mt-5">Freelancers leaderboard<i class="fas fa-circle text-primary"></i>
             </h1>
             <h2 class="h2 fw-light">Discover the ranking of freelancers</h2>
         </header>
 
-        <div class="my-4 leader">
+        <div data-aos="fade-right" class="my-4 leader">
             {% for user in users %}
                 <div class="d-flex flex-md-row flex-column user-row align-items-center justify-content-between mb-3">
                     <div class="d-flex left flex-row align-items-center">
