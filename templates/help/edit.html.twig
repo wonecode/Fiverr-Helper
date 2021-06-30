@@ -3,7 +3,7 @@
 {% block title %}
     {{ parent() }}
     -
-                Modify your request
+                    Modify your request
 {% endblock %}
 
 {% block stylesheets %}
@@ -37,8 +37,8 @@
                 <button class="btn btn-primary fw-bold text-white mt-2 mb-md-4 mb-1">{{ button_label|default('Ask for help') }}</button>
                 <a class="btn btn-outline-primary fw-bold mt-2 mb-4" href="{{ path('help_show', {help: help.id}) }}">Return to your request</a>
             </div>
-            {% include "help/_delete_form.html.twig" %}
         </div>
         {{form_end(form)}}
+        {% include "help/_delete_form.html.twig" %}
     </main>
 {% endblock %}

@@ -28,9 +28,10 @@ class HelpController extends AbstractController
      */
     public function index(HelpRepository $helpRepository, Request $request): Response
     {
-        
         $helps = $helpRepository->findBy([
             'active' => true
+        ],[
+            'createdAt' => 'DESC'
         ]);
 
         $filterCategory = new FilterCategory();
@@ -43,19 +44,27 @@ class HelpController extends AbstractController
                     $helps = $helpRepository->findBy([
                         'active' => $filterCategory->getActive() === 'unsolved' ? true : false,
                         'category' => $filterCategory->getCategory()
+                    ],[
+                        'createdAt' => 'DESC'
                     ]);
                 } else {
                     $helps = $helpRepository->findBy([
                         'category' => $filterCategory->getCategory()
+                    ],[
+                        'createdAt' => 'DESC'
                     ]);
                 }
             }else {
                 if ($filterCategory->getActive() !== 'all') {
                     $helps = $helpRepository->findBy([
                         'active' => $filterCategory->getActive() === 'unsolved' ? true : false,
+                    ],[
+                        'createdAt' => 'DESC'
                     ]);
                 } else {
-                    $helps = $helpRepository->findAll();
+                    $helps = $helpRepository->findBy([],[
+                        'createdAt' => 'DESC'
+                    ]);
                 }
             }
         }
@@ -157,7 +166,7 @@ class HelpController extends AbstractController
             $this->addFlash('danger', 'your request for help has been deleted');
         }
 
-        return $this->redirectToRoute('home');
+        return $this->redirectToRoute('help_index');
     }
 
     /**
@@ -165,7 +174,6 @@ class HelpController extends AbstractController
      */
     public function close(Help $help, EntityManagerInterface $em, User $user, ExperienceCalculator $experienceCalculator): Response
     {
-       
         $user->setExperience($user->getExperience() + 25);
         $experienceCalculator->canLevelUp($user, $em);
         $help->setActive(false);
