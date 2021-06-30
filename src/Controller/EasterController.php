@@ -26,9 +26,7 @@ class EasterController extends AbstractController
                 $this->getUser()->setExperience($hackathon->getExperience());
                 $hackathon->setUserNumber($hackathon->getUserNumber() - 1);
                 $em->flush();
-                return $this->render('easter/index.html.twig', [
-                    'controller_name' => 'EasterController',
-                ]);
+                return $this->render('easter/index.html.twig');
             }
         }
 

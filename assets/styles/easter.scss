@@ -1,0 +1,22 @@
+@import 'variables';
+
+main {
+    font-family: $font-p;
+    height: 65vh;
+
+    h1 {
+        font-family: $title;
+
+        i {
+            font-size: 10px;
+        }
+    }
+
+    h2 {
+        font-size: 25px;
+    }
+
+    img {
+        width: 150px;
+    }
+}

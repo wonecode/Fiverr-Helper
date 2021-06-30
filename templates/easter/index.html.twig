@@ -1,8 +1,34 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %}Hello EasterController!{% endblock %}
+{% block title %}Fiverr Helper - YOU WIN !
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    {{ encore_entry_link_tags('easter') }}
+{% endblock %}
 
 {% block body %}
-    <h1 class="h1">YOU WIN</h1>
-    <p>You found the secret word</p>
+    <main class="container p-5 d-flex flex-column justify-content-center align-items-center">
+        <header class="pt-md-5 pt-4 pb-3">
+            <h1 class="h1 text-dark text-center fw-bold mt-5">Good job<i class="fas fa-circle text-primary"></i>
+            </h1>
+            <h2 class="h2 fw-light">You found the secret word, so we gift you the level 100 !</h2>
+        </header>
+
+        <div class="d-flex justify-content-center mt-4">
+            <img src="https://www.wildcodeschool.com/static/imgs/logo.png" alt="" class="me-3">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Fiverr_Logo_09.2020.svg/1280px-Fiverr_Logo_09.2020.svg.png" alt="">
+        </div>
+
+        <h3 class="h5 mt-4 fw-lighter">Thanks for this hackathon, we are proud to have worked on this project.</h3>
+
+        <div class="d-flex mt-5">
+            <p class="text-primary fw-bold">Lochlainn GADAULT<span class="mx-1 text-dark">•</span></p>
+            <p class="text-primary fw-bold">Maël CHARIAULT<span class="mx-1 text-dark">•</span></p>
+            <p class="text-primary fw-bold">Tennessee HOURY<span class="mx-1 text-dark">•</span></p>
+            <p class="text-primary fw-bold">Loïc PINGUET</p>
+        </div>
+    </main>
 {% endblock %}
