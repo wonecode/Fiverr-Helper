@@ -18,22 +18,21 @@ class ProfileController extends AbstractController
      */
     public function index(User $user, QuestRepository $questRepository, ExperienceCalculator $experience): Response
     {
-        if ($user !== $this->getUser()) {
-            return new RedirectResponse('/');
-        }
 
-        for ($i = 1; $i < $user->getLevel(); ++$i) {
+        for ($i = 1; $i <= $user->getLevel(); ++$i) {
             $level[] = $i;
         }
-       
+
+
         return $this->render('profile/index.html.twig', [
             'user' => $user,
             'quests' => $questRepository->findby(
                 [
                     'minimumLevel' => $level,
                 ]),
-            'experience' => $experience->percentageExperience(),
+            'experience' => $experience->percentageExperience($user),
             'badges' => $user->getBadge(),
+            'accomplished' => $user->getFinishedQuest(),
         ]);
     }
 }
