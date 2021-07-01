@@ -38,6 +38,7 @@ class UserFixtures extends Fixture
         $user->setExperience(3640);
         $user->setImage("https://i.ibb.co/z7py0Yv/1622720197208-e-1625140800-v-beta-t-BYXXAj-CPT1-IAh-Fx-FNV86la-Jwaqt-BBFSA2-Ge4-Y5y-JF9-I.jpg");
         $manager->persist($user);
+        $this->addReference('lochlainn', $user);
 
 
         $user = new User();
@@ -65,8 +66,8 @@ class UserFixtures extends Fixture
         $user->setUsername('Tennessee Houry');
         $user->setPassword($this->passwordHasher->hashPassword($user, 'admin'));
         $user->setRoles(['ROLE_USER']);
-        $user->setLevel(100);
-        $user->setExperience(3640);
+        $user->setLevel(1);
+        $user->setExperience(0);
         $user->setImage("https://i.ibb.co/PYmD0Xt/1622115993708-e-1625140800-v-beta-t-1y-ADt-GBwo-YB-LZsc-024-NAekdn-JIQSs-Gl-Fc-E00c-IXAA.jpg");
         $manager->persist($user);
 

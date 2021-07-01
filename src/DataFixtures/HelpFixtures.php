@@ -43,6 +43,24 @@ class HelpFixtures extends Fixture implements DependentFixtureInterface
             $manager->persist($help);
         }
 
+        $help = new Help();
+        $help->setSubject('My design is good but not enough');
+        $help->setDescription('Please help me');
+        $help->setActive(true);
+        $help->setCreatedAt(new DateTimeImmutable());
+        $help->setApplicant($this->getReference('lochlainn'));
+        $help->setCategory($this->getReference('category_Design'));
+        $manager->persist($help);
+
+        $help = new Help();
+        $help->setSubject('I\'m looking to a work-study in React/Node');
+        $help->setDescription('Please help me to find out my work-study... Thanks guys !');
+        $help->setActive(true);
+        $help->setCreatedAt(new DateTimeImmutable());
+        $help->setApplicant($this->getReference('lochlainn'));
+        $help->setCategory($this->getReference('category_Javascript'));
+        $manager->persist($help);
+
         $manager->flush();
     }
 
