@@ -1,4 +1,4 @@
-#Fiverr Helper - Hackathon Fiverr x Wild Code School*
+#Fiverr Helper - Hackathon Fiverr x Wild Code School
 
 ![Wild Code School](https://wildcodeschool.fr/wp-content/uploads/2019/01/logo_pink_176x60.png)
 
