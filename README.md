@@ -1,6 +1,6 @@
-#Fiverr Helper - Hackathon Fiverr x Wild Code School
+# Fiverr Helper - Hackathon Fiverr x Wild Code School
 
-![Wild Code School](https://wildcodeschool.fr/wp-content/uploads/2019/01/logo_pink_176x60.png)
+![Wild Code School](https://wildcodeschool.fr/wp-content/uploads/2019/01/logo_pink_176x60.png) ![Fiverr](https://www.seekpng.com/png/full/154-1547372_fiverr-logo-transparent-fiverr-logo-transparent-fiverr-logo.png)
 
 This starter kit is here to easily start a repository for your students.
 
