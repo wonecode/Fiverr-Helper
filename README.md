@@ -6,7 +6,7 @@ This is a Web App developed in 48h, for the Fiverr x Wild Code School Hackathon.
 
 To use this app, you have to follow instructions below.
 
-🏆 We finished first in the regional hackathon.
+🏆 We finished at the first place in the regional hackathon.
 
 ## Developers
 
