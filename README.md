@@ -13,7 +13,7 @@ To use this app, you have to follow instructions below.
 [Tennessee HOURY](https://github.com/RedPandore)
 [Loïc PINGUET](https://github.com/Loic-Code)
 
-## Getting Started for Students
+## Getting Started
 
 ### Prerequisites
 
