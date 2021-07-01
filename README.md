@@ -2,9 +2,16 @@
 
 ![Wild Code School](https://wildcodeschool.fr/wp-content/uploads/2019/01/logo_pink_176x60.png) ![Fiverr](https://i.imgur.com/ReJfyzR.png)
 
-This starter kit is here to easily start a repository for your students.
+This is a Web App developed in 48h, for the Fiverr x Wild Code School Hackathon.
 
-It's symfony website-skeleton project with some additional tools to validate code standards.
+To use this app, you have to follow instructions below.
+
+## Developers
+
+![Lochlainn GADAULT](https://github.com/glochlainn)
+![Maël CHARIAULT](https://github.com/bouboumael)
+![Tennessee HOURY](https://github.com/RedPandore)
+![Loïc PINGUET](https://github.com/Loic-Code)
 
 ## Getting Started for Students
 
