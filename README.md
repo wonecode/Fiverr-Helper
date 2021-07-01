@@ -8,10 +8,10 @@ To use this app, you have to follow instructions below.
 
 ## Developers
 
-![Lochlainn GADAULT](https://github.com/glochlainn)
-![Maël CHARIAULT](https://github.com/bouboumael)
-![Tennessee HOURY](https://github.com/RedPandore)
-![Loïc PINGUET](https://github.com/Loic-Code)
+[Lochlainn GADAULT](https://github.com/glochlainn)
+[Maël CHARIAULT](https://github.com/bouboumael)
+[Tennessee HOURY](https://github.com/RedPandore)
+[Loïc PINGUET](https://github.com/Loic-Code)
 
 ## Getting Started for Students
 
