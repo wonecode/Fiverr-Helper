@@ -22,6 +22,14 @@ To use this app, you have to follow instructions below.
 3. Run `yarn install`
 4. Run `yarn encore dev` to build assets
 
+### Environnement
+
+1. Copy `.env` and paste with file name `.env.local`
+2. Change the line `DATABASE_URL="mysql://db_user:db_password@127.0.0.1:3306/db_name?serverVersion=8.0"` with your MySQL informations
+3. Run `symfony d:d:c`
+4. Run `symfony d:m:m`
+5. Run `symfony d:f:l`
+
 ### Working
 
 1. Run `symfony server:start` to launch your local php web server
