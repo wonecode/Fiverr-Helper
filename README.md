@@ -15,11 +15,6 @@ To use this app, you have to follow instructions below.
 
 ## Getting Started
 
-### Prerequisites
-
-1. Check composer is installed
-2. Check yarn & node are installed
-
 ### Install
 
 1. Clone this project
