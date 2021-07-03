@@ -177,7 +177,6 @@ class HelpController extends AbstractController
     public function close(Help $help, EntityManagerInterface $em, User $user, ExperienceCalculator $experienceCalculator, InProgressQuestRepository $inProgressQuestRepository): Response
     {
         $user->setExperience($user->getExperience() + 25);
-        $experienceCalculator->canLevelUp($user, $em);
 
         $help->setActive(false);
 
@@ -193,6 +192,7 @@ class HelpController extends AbstractController
                 $user->addFinishedQuest($quest);
             }
         }
+        $experienceCalculator->canLevelUp($user, $em);
         $em->flush();
 
         return $this->redirectToRoute('help_index');
