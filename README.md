@@ -2,12 +2,12 @@
 
 ![Wild Code School](https://wildcodeschool.fr/wp-content/uploads/2019/01/logo_pink_176x60.png) ![Fiverr](https://i.imgur.com/ReJfyzR.png)
 
+##### 🏆 We finished at the first place in the regional hackathon.
+##### 🥈 We finished at the second place in the national hackathon.
+
 This is a Web App developed in 48h, for the Fiverr x Wild Code School Hackathon.
 
 To use this app, you have to follow instructions below.
-
-##### 🏆 We finished at the first place in the regional hackathon.
-##### 🥈 We finished at the second place in the national hackathon.
 
 ## Developers
 
