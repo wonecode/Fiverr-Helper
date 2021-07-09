@@ -8,13 +8,17 @@ To use this app, you have to follow instructions below.
 
 ## Winnings & Developers
 
+### Winnings
+
 ##### 🏆 We finished at the first place in the regional hackathon.
 ##### 🥈 We finished at the second place in the national hackathon.
 
-[Lochlainn GADAULT](https://github.com/glochlainn)
-[Maël CHARIAULT](https://github.com/bouboumael)
-[Tennessee HOURY](https://github.com/RedPandore)
-[Loïc PINGUET](https://github.com/Loic-Code)
+### Developers
+
+* [Lochlainn GADAULT](https://github.com/glochlainn)
+* [Maël CHARIAULT](https://github.com/bouboumael)
+* [Tennessee HOURY](https://github.com/RedPandore)
+* [Loïc PINGUET](https://github.com/Loic-Code)
 
 ## Getting Started
 
